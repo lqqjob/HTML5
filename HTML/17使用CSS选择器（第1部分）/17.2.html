@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>复合选择器</title>
+		<style type="text/css">
+			/*并集选择器 <选择器>，<选择器>，<选择器>
+			 * 单个选择器匹配的所有元素的并集
+			 * */
+			a,[lang|="en"] {
+				border: thin black solid;
+				padding: 4px;
+			}
+			/*后代选择器 <第一个选择器> <第二个选择器>
+			 * 目标元素为匹配第一个选择器的后代，且匹配第二个选择器
+			 * 
+			 */
+		p span {
+			border: thin black solid;
+			padding: 4px;
+		}
+			
+		</style>
+	</head>
+	<body>
+		<a id="apressscanchor" class="class1 class2" href="http://apress.com">Visit the Apress website</a>
+		<p>
+			I like <span lang="en-uk" class="class2">apples</span>and oranges.
+		</p>
+		<a id="w3canchor" href="http://w3c.org">Visit the W3C website</a>
+	</body>
+</html>
