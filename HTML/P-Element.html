@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>P-Element</title>
+		<meta name="author" content="Li qiang"/>
+		<meta name="description" content="A P-Element" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<style>
+			.favotites {
+				background: grey;
+				color: white;
+				border: thin sold black;
+				padding: 0.2em;
+			}
+			
+			body {
+				counter-reset: OuterItemCount 5 InnerItemCount;
+			}
+			#outerlist > li:before {
+				content:counter(OuterItemCount)".";
+				counter-increment:OuterItemCount 2;
+			}
+			ul.innerlist > li:before {
+				content: counter(InnerItemCount,lower-alpha)".";
+				counter-increment: InnerItemCount;
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+			<code> 
+			Var fruits = ["apples", "oranges", "mangoes", "cherries"];<br />
+			for (var i =0;i<fruits.lenth; i++) {
+				document.writeln("I like "+fruites[i]);
+			}
+		</code>
+		</pre>
+		<div class="favotites">
+		<p>I like apples and oranges.</p>
+		<p>I also like bananas,mangoes,cherris,apricots,plums,peaches and grapes.You can see other fruits I like <a href="#fruits">here</a></p>
+		<blockquote cite="http://en.wikipedia.org/wiki/apple">
+			The apple is a deciduous tree, generally standing 1.8 to 4.6 m (6 to 15 ft) tall in cultivation and up to 12 m (39 ft) in the wild.[4] When cultivated, the size, shape and branch density are determined by rootstock selection and trimming method. The leaves are alternately arranged dark green-colored simple ovals with serrated margins and slightly downy undersides.[5]
+		<hr />
+		Mildew: which is characterized by light grey powdery patches appearing on the leaves, shoots and flowers, normally in spring. The flowers will turn a creamy yellow color and will not develop correctly. This can be treated in a manner not dissimilar from treating Botrytis; eliminating the conditions which caused the disease in the first place and burning the infected plants are among the recommended actions to take.[58]
+		<hr />
+		Aphids: There are five species of aphids commonly found on apples: apple grain aphid, rosy apple aphid, apple aphid, spirea aphid and the woolly apple aphid. The aphid species can be identified by their color, the time of year when they are present and by differences in the cornicles, which are small paired projections from the rear of aphids.[58] Aphids feed on foliage using needle-like mouth parts to suck out plant juices. When present in high numbers, certain species reduce tree growth and vigor.[59]
+		</blockquote>
+		<p><strong>Warning:</strong> Eating too many oranges can make you heart burn.</p>
+		<p>
+			My favorite orange is the mandarin,propeyly known as <i>citrus reticulata</i>.
+		</p>
+			Oranges at my local store cost <s>$1 esch</s> $2 for 3.
+			
+		</div>
+		
+		<p>
+			I still remember the best apple I ever tasted. I bought it at <time datetime="15:00">3 o'clock</time> on <time datetime="1984-12-7">Demeber 7th</time>.
+		</p>
+		<p>The <abbr title="Florida department of Citrus"></abbr>FDOC regulates the Florida citrus industry.</p>
+<!--ol 元素-->
+		<p>
+			I like apples and oranges.
+			I alse like:
+			<ol start="1" type="1" >
+				<li>bananas</li>
+				<li value="4">mangoes</li>
+				<li>cherries</li>
+				<li>plums</li>
+				<li value="8">peaches</li>
+				<li>grapes</li>
+			</ol>
+			<ul id="outerlist" style="list-style-type: none;">
+				<li>bananas</li>
+				<li>mangoes,including:</li>
+					<ul class="innerlist">
+						<li>Haden mangoes</li>
+						<li>Keitt mangoes</li>
+						<li>Kent mangoes</li>
+					</ul>
+				<li>cherries</li>
+				<li>plums including:
+					<ul class="innerlist">
+						<li>Elephant Heart plums</li>
+						<li>Stanley plums</li>
+						<li>Seneca plums</li>
+					</ul>
+				</li>
+				<li>peaches</li>
+				<li>grapes</li>
+			</ul>
+			<dl>
+				<dt>Apple</dt>
+				<dd>The apple is the pomacuous fruit of the apple tree.</dd>
+				<dd><i>Malus domestica</i></dd>
+				<dt>Banana</dt>
+				<dd>The banana is the parthenaocarpic fruit of the banana tree</dd>
+				<dd><i>Musa acuminata</i></dd>
+				<dt>Cherry</dt>
+				<dd>The cherry is the stone fruit of the geus <i>Pruns</i></dd>
+			</dl>
+		</p>
+		<figure>
+			<figcaption>Listing23. Using the code element</figcaption>
+			<code> 
+			Var fruits = ["apples", "oranges", "mangoes", "cherries"];<br />
+				document.writeln("I like "+fruites.length + "fruits");
+		</code>
+		</figure>
+	</body>
+</html>

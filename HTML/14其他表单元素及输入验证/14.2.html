@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用输入验证</title>
+		<meta name="author" content="LiQiang"/>
+		<meta name="description" content="A simple" />
+		<link rel="shortcut icon" href="../favicon.ico" />
+	</head>
+	<body>
+		<form method="post" action="http://titan:8080/form">
+			<input type="hidden" name="recordID" value="1234"/>
+			<p>
+				<label for="name">Name:<input id="name" name="name" type="text" pattern="^.* .*$" required></label>
+			</p>
+			<p>
+				<label for="password">Password:<input id="password" name="password" type="password" required placeholder="Min 6 characters"></label>
+			</p>
+			<p>
+				<label for="Email">Email:<input type="email" placeholder="user@mydomain.com" required pattern = ".*@mydomain.com$" id="email" name="email"></label>
+			</p>
+			<p>
+				<label for="price">Price:<input type="number" min="0" max="100" value="1" id="price" name="price" required/> </label>
+			</p>
+			<p>
+				<label for="accept"><input type="checkbox" required id="accept" name="accept">Accept Terms & Conditions</label>
+			</p>
+			<input type="submit" value="Save" formnovalidate/>
+		</form>
+	</body>
+</html>

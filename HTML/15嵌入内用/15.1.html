@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>嵌入图像</title>
+		<meta name="author" content="LiQiang"/>
+		<meta name="description" content="A simple" />
+		<link rel="shortcut icon" href="../favicon.ico" />
+	</head>
+	<body>
+		Here is a common form for representing the three activity  in a triathlon.
+		<p>
+			<img src="../img/图二.jpg" alt="Triathon Image" width="800" height="222"/>
+		</p> 
+		<p>
+			<a href="otherpage.html">
+				<img src="../img/图二.jpg" ismap alt="Triathon Image" width="800" height="222"/>
+			</a>
+		</p>
+		
+		<p>
+			<img src="../img/图二.jpg" alt="Triathon Image" usemap="#mymap"width="800" height="222"/>
+		</p> 
+		The first icon represent swimming,the second represent cycling and the third represent running.
+		<map name="mymap">
+			<area href="swippage.html" shape="rect" coords="17,3,237,209" alt="Swimming"/>
+			<area href="cyclepage.html" shape="rect" coords="337,3,478,209" alt="Swimming"/>
+			<area href="otherpage.html" shape="default" alt="default"/>
+		</map>
+	</body>
+</html>

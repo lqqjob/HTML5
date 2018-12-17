@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用CSS基本选择器</title>
+		<meta name="author" content="LiQiang"/>
+		<meta name="description" content="A simple" />
+		<link rel="shortcut icon" href="../favicon.ico" />
+		<style type="text/css">
+			*{
+				border:thin black solid;
+				padding: 4px;
+			}
+			a {
+				border:thin red solid;
+				padding: 10px;
+			}
+			.class2 {
+				border:thin blue solid;
+				padding: 5px;
+			}
+			span.class2 {
+				border:thin yellow solid;
+				padding: 5px;
+			}
+			#w3canchor {
+				border: brown;
+				background-color: blue;
+				color: white;
+			}
+			[href] {
+				color: red;
+			}
+			[class]{
+				background: black;
+			}
+			[class="classTest"] {
+				color: #FF0000;
+			}
+			[class^="test"] {
+				color: blue;
+			}
+			[class$="check"] {
+				color: cyan;
+			}
+			[class*="ssF"] {
+				color: #A52A2A;
+			}
+			[class~="id5"] {
+				color: #FFFF00;
+			}
+			[class|="id3"] {
+				color: #FAEBD7;
+			}
+		</style>
+	</head>
+	<body>
+		<a class="class1 class2" href="https://www.baidu.com">Visit BaiDu</a>
+		<p>I like <span class="class2">apples</span> and oranges</p>
+		<a href="https://developer.apple.com">Visit Apple</a>
+		<p id="w3canchor">这个是根据ID选择元素</p>
+		<p>
+			<a href="https://www.baidu.com">17.1.5 根据属性选择元素</a>
+		</p>
+		<p class="classTest">[attr="val"]选择定义attr属性，且属性值为val的元素</p>
+		<p class="testClass">[attr^="val"]选择定义attr属性，且属性值为val开头的元素</p>
+		<p class="testClasscheck">[attr$="val"]选择定义attr属性，且属性值为val结束的元素</p>
+		<p class="testClassFind">[attr*="val"]选择定义attr属性，且属性值包含val的元素</p>
+		<p class="id1 id5 id2">[attr~="val"]选择定义attr属性，且属性值有多个值，其中一个为val</p>
+		<p class="id3-id5">[attr|="val"]选择定义attr属性，且属性值为连字符分割的多个值，其中第一个为val</p>
+
+	</body>
+</html>

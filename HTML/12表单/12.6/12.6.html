@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<meta name="author"  content="LiQiang"/>
+			<meta name="description" content="A simple example" />
+			<link rel="shortcut icon" href="../../favicon.ico"/>
+		<title>对表单元编组</title>
+		<base href="http://titian:8080" />
+	</head>
+	<form method="post" action="/form">
+		<fieldset>
+			<legend>Enter Your Details</legend>
+			<p><label for="name">Name:<input name="name" id="name" /></label></p>
+			<p><label for="city">City:<input name="city" id="city"/></label></p>
+		</fieldset>
+		<fieldset disabled>
+			<legend>Vote For Your Three Favorite Fruits</legend>
+			<p><label for="fave1">#1:<input name="fave1" id="fave1"/></label></p>
+			<p><label for="fave2">#2:<input name="fave2" id="fave2"/></label></p>
+			<p><label for="fave3">#3:<input name="fave3" id="fave3"/></label></p>
+		</fieldset>
+		<button>Submit Vote</button>
+	</form>
+	<body>
+	</body>
+</html>

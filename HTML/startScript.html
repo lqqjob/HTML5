@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Example</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var myGloablVar = "apples";
+			document.writeln("hello");
+			document.writeln("this is a statement");
+			document.writeln("this is also a statement");
+			function myFunc() {
+				document.writeln("myfun");
+			}
+			myFunc();
+			function myFuncTwoParams(name,weather) {
+				document.writeln("Hello"+name+".");
+				document.writeln("It is "+weather+" today");
+			}
+			myFuncTwoParams("Adam","sunny");
+			function myFuncReturnValue(name) {
+				var myLocalVar = "sunny";
+				return ("Hello " +name+". Today is " +myLocalVar+"." );
+			}
+			document.writeln(myFuncReturnValue("Adam"));
+		</script>
+		<script type="text/javascript">
+			document.writeln("I like "+ myGloablVar);
+		</script>
+		<script type="text/javascript">
+			var myData = new Object();
+			myData.name = "Adam";
+			myData.weather = "Sunny";
+			document.writeln("Hello "+myData.name+". ");
+			document.write("Today is "+myData.weather+".");
+		</script>
+		<script type="text/javascript">
+			var myData1 = {
+				name:"Adam",
+				weather:"sunny"
+			};
+			document.writeln("Hello "+myData1.name+". ");
+			document.write("Today is "+myData1.weather+".");
+		</script>
+		<script type="text/javascript">
+			var myData = {
+				name:"Adam",
+				weather:"sunny",
+				printMessages:function() {
+					document.writeln("Hello "+this.name+".");
+					document.writeln("Today is "+this.weather+".");
+				}
+			};
+			myData.printMessages();
+			myData.name = "liqiang";
+			myData.weather = "rain";
+			myData.printMessages();
+			myData["name"] = "hhhhh";
+			myData["weather"] = "xiayu";
+			myData.printMessages();
+			
+//			for(var prop in myData) {
+//				document.writeln("Name: "+prop + "value: "+myData[prop]);
+
+			
+			myData.dayOfWeek = "Moday";
+			
+//			for(var prop in myData) {
+//				document.writeln("Name: "+prop + "value: "+myData[prop]);
+//			}
+			
+			myData.sayhello = function() {
+				document.writeln("Hello");
+			}
+			
+//			for(var prop in myData) {
+//				document.writeln("Name: "+prop + "value: "+myData[prop]);
+//			}
+			
+//			delete myData.name;
+			delete myData["weather"];
+			delete myData.sayhello();
+			
+			for(var prop in myData) {
+				document.writeln("Name: "+prop + "value: "+myData[prop]);
+			}
+			
+			var hasName = "name" in myData;
+			var hasDate = "date" in myData;
+			document.writeln("HasName: "+hasName);
+			document.writeln("HasDate "+hasDate);
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+			<meta name="author"  content="LiQiang"/>
+			<meta name="description" content="A simple example" />
+			<link rel="shortcut icon" href="../../favicon.ico"/>
+		<title>使用button元素</title>
+		<base href="http://titian:8080" />
+	<body>
+		<form id="voteform">
+			<p><label for="fave">Fruit:<input id="fave" name="fave" autofocus/></label></p>
+			<p><label for="name">Name:<input id="name" name="name" form="voteform"/></label></p>
+			<button form="voteform" type="submit" formaction="http://titian:8080" formmethod="post" formtarget="_blank">Submit Vote</button>
+			<button form="voteform" type="reset">Reset</button>
+		</form>
+	</body>
+</html>

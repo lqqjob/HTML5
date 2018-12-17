@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author"  content="LiQiang"/>
+		<meta name="description" content="A simple example" />
+		<link rel="shortcut icon" href="../../favicon.ico"/>
+		<title>用input元素输入文字</title>
+		<base href="http://titian:8080" />
+	</head>
+	<body>
+		<form method="post" action="/form">
+			<p>
+				<label for="name">
+					Name: <input id="name" name="name" maxlength="10" autofocus placeholder="Your name" value="Adam" disabled/>
+				</label>
+			</p>
+			<p>
+				<label for="city">
+					City:<input id="city" name="city" size="10" placeholder="Where you live" value="ShenZhen" readonly/>
+				</label>
+			</p>
+			<p>
+				<label for="fave">
+					Fruit:<input id="fave" name="fave" size="10" maxlength="10" list="fruitlist"/>
+				</label>
+			</p>
+			<p>
+				<label for="password">
+					Password:<input id="password" placeholder="Min 6 characters" name="passsword" type="password">
+				</label>
+			</p>
+			<p>
+				<label for="price">$ per unit in your area:
+				<input type="number" step="1" min="0" max="100" value="1" id="price" name="price"/>
+				</label>
+			</p>
+			<p>
+				<label for="price">$ per unit in your area:1
+				<input type="range" step="1" min="0" max="100" value="1" id="price" name="price"/>100
+				</label>
+			</p>
+			<p>
+				<label for="veggie">
+					Are you vegetarian:<input type="checkbox" id="veggie" name="veggie"/>
+				</label>
+			</p>
+			<button type="submit">Submit Vote</button>
+		</form>
+		<datalist id="fruitlist">
+			<option value="Apples" label="Lovely Apples" />
+			<option value="Oranges">Refreshing Oranges</option>
+			<option value="Cherries" />
+		</datalist>
+		
+		<form method="post" action="http://titan:8080/form" enctype="multipart/form-data">
+			<input type="hidden" name="recordID" value="1234"/>
+			<p>
+			 <label for="name">Name:<input value="Adam" id="name" name="name"/></label>
+			</p>
+			<p>
+				<label for="password">
+					Password:<input type="password" placeholder="Min 6 characters" id="password" name="password"/>
+				</label>
+			</p>
+			<p>
+				<fieldset>
+					<legend>Vote for your favorite fruit</legend>
+					<label for="apples"><input type="radio" checked value="Apples" id="apples" name="fave"/>Apples</label>
+					<label for="oranges"><input type="radio" value="Oranges" id="oranges" name="fave"/>Oranges</label>
+					<label for="cherries"><input type="radio" value="Cherries" id="cherries" name="fave"/>Cherries </label>
+				</fieldset>
+			</p>
+			<p>
+				<label for="email">Email:<input type="email" placeholder="user@domain.com" id="email" name="email" /> </label>
+			</p>
+			<p>
+				<label for="tel">Tel:<input type="tel" placeholder="(XXX)-XXX-XXXX" id="tel" name="tel" /></label>
+			</p>
+			<p>
+				<label for="url">Your homepage:<input type="url" id="url" name="url"/> </label>
+			</p>
+			<p>
+				<label for="lastbuy">When did you last buy:<input type="date" id="lastbuy" name="lastbuy"/> </label>
+			</p>
+			<p>
+				<label for="color">Color:<input type="color" id="color"  name="color"/> </label>
+			</p>
+			<p>
+				<label for="search">
+					Search:<input type="search" name="search" id="search"/>
+				</label>
+			</p>
+			<p>
+				<input type="file" name="filedata" />
+			</p>
+			<input type="submit" value="Submit Vote"/>
+			<input type="image" src="../favicon.ico" name="submit" alt="hello"/>
+		</form>
+	</body>
+</html>

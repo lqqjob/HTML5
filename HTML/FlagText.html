@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Liqiang">
+		<meta name="description" content="Flag text example" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-ico" />	
+		<title>FlagText</title>
+		<style>
+			.fruit{
+				border: thin solid black;
+				padding: 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<em>I</em> like <a href="http://en.wikipedia.org/wiki/Apples"><b>apples</b></a> and
+		<a href="http://en.wikipedia.org/wiki/Orange_(fruit)"><b>oranges</b></a>
+		<br />
+		My favorite kind of orange is the mandarin,known as <i>citus reticulata</i>
+		<br />
+		Oranges at my local store cost <s>$1 each</s>$2 for 3<small>(plus tax)</small>
+		<br />
+		<strong>Warning:</strong>Eating <u>too many</u> oranges can make give you heart burn.
+			
+<!--内部超链接-->
+		<br />
+		You can see other fruits I like <a href="#fruits">here</a>
+		<p id="fruits">
+			I also like bananas,mangoes,cherris,apricots,plums,peaches and grapes.
+		</p>
+		
+		<!--添加上标和下标-->
+		<p>
+			The point x<sub>10</sub> is the 10<sup>th</sup> point.
+		</p>
+		<!--wbr元素-->
+		<p>
+			This is a very long word:Super<wbr>califragilistic<wbr>expialidocious.
+			We can help the browser display long words with the <code>wbr</code> element.
+		</p>
+		<!--表示输入跟输出-->
+		<p>
+			<code>
+			var fruit = ["apples","oranges","mangoes","cherries"];<br/>
+			document.writeln("I like "+ fruits.length +" fruits");
+			</code>
+		</p>
+		
+		<p>
+			The variable in this example is <var>fruits</var>
+		</p>
+		<p>The output from the code is:<samp>I like 4 fruits</samp></p>
+		<p>When prompted for my favorite fruit,I typed:<kbd>cherries</kbd></p>
+		
+		<!--使用引用、引文、定义和缩写-->
+		<p>The <abbr title="Florida department of Citrus"></abbr>FDOC regulates the Florida citrus industry.</p>
+		<p>
+			<q cite="http:en.wikipedia.org/wiki/Apple">
+			The <dfn title="apple">apple</dfn> is the pomaceous fruit of the apple tree,species Malus domestica in the rose family.
+
+			</q>
+		</p>
+		<p>My favorite book on fruit is <cite>Fruit,Edible,Inedible,Incredible</cite> by Stuppy & Kesseler</p>
+		
+		<!--使用语言元素-->
+		<p>
+			<ruby>魑<rp>（</rp><rt>chi</rt><rp>）</rp></ruby>
+			<ruby>魅<rp>（</rp><rt>mei</rt><rp>）</rp></ruby>
+			<ruby>魍<rp>（</rp><rt>wang</rt><rp>）</rp></ruby>
+			<ruby>魉<rp>（</rp><rt>liang</rt><rp>）</rp></ruby>
+		</p>
+		
+		<p>This is left-to-right: <bdo dir="ltr">I like oranges</bdo></p>
+		<p>This is right-to-left: <bdo dir="rtl">I like oranges</bdo></p>
+		<!--其他文本元素-->
+		<p>I like <span class="fruit">apples</span> and <span class="fruit">oranges.</span></p>
+		
+		<p>
+			Homophones are words which are pronounced the same,but have different spellings and meanings.For example:
+			<p>
+				I would like a <mark>pair</mark> of <mark>pears</mark>
+			</p>
+		</p>
+		<p>
+			<del>I can <mark>see</mark> the <mark>see</mark></del>
+			<ins>I can <mark>see</mark> the <mark>sea</mark></ins>
+		</p>
+		<p>
+			I still remember the best apple I ever tasted. I bought it at <time datetime="15:00">3 o'clock</time> on <time datetime="1984-12-7">Demeber 7th</time>.
+		</p>
+	</body>
+</html>

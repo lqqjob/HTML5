@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用其他表单元素</title>
+		<meta name="author" content="Liqiang" />
+		<meta name="description" content="A simple example"/>
+		<link rel="shortcut icon" href="../favicon.ico" />
+	</head>
+	<body>
+		<form action="http://baidu.com" method="post">
+			<input type="hidden" name="RecordID" value="1234"/>
+			<p>
+				<label for="name">Name:<input value="Adam" id="name" name="name"/> </label>
+			</p>
+			<p>
+				<label for="password">Password:<input type="password" name="password" id="password" placeholder="min 6 characters"/> </label>
+			</p>
+			<p>
+				<label for="fave" style="vertical-align: top;">
+					Favorite Fruite:
+					<select id="fave" name="fave" size="7" multiple>
+						<optgroup label="Top Choices">
+							<option value="apples" selected label="Apples">Apples</option>
+							<option value="oranges" label="Oranges">Oranges</option>
+						</optgroup>
+						<optgroup label="Others">
+							<option value="cherries" label="Cherries">Cherries</option>
+							<option value="pears" label="Pears">Pears</option>
+						</optgroup>
+						
+					</select>
+				</label>
+			</p>
+			<p>
+				<textarea cols="20" rows="5" wrap="soft" id="story" name="story">Tell us why this is your favorite fruit</textarea>
+			</p>
+			<input type="submit" value="Submit"/>
+		</form>
+		<form onsubmit="return false" oninput="res.value = quant.valueAsNumber * price.valueAsNumber">
+				<fieldset>
+					<legend>Price calculator</legend>
+					<input type="number" placeholder="Quantity" name="quant" id="quant"/> x
+					<input type="number" placeholder="Price" name="price" id="price" /> =
+					<output for="quant name" name="res" />
+				</fieldset>
+			</form>
+	</body>
+</html>

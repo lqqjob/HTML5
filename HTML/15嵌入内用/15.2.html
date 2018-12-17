@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>嵌入另一张HTML文档</title>
+		<meta name="author" content="LiQiang"/>
+		<meta name="description" content="A simple" />
+		<link rel="shortcut icon" href="../favicon.ico" />
+	</head>
+	<body>
+		<header>
+		<h1>Things I like</h1>
+		<nav>
+			<ul>
+				<li>
+					<a href="../P-Element.html" target="myframe">Fruits I like</a>
+				</li>
+				<li>
+					<a href="../11表格/11.5.html" target="myframe">Table</a>
+				</li>
+			</ul>
+		</nav>	
+		</header>
+		
+		<iframe name="myframe" width="300" height="100"></iframe>
+		<p>
+			<embed src="https://v.qq.com/x/page/y00265orhmf.html"  width="560" height="349">
+		</p>
+		<p>
+			<object width="560" height="349" data="https://v.qq.com/x/page/y00265orhmf.html">
+				<param name="allowFullScreen" value="true"/>
+			</object>
+		</p>
+		<p>
+			<object width="560" height="349" data="y00265orhmf.html">
+				<param name="allowFullScreen" value="true"/>
+				<b>Sorry!</b>We can't display this content
+			</object>
+		</p>
+		<object data="../img/图二.jpg">
+			
+		</object>
+		<p>
+			<header>
+		<h1>Things I like</h1>
+		<nav>
+			<ul>
+				<li>
+					<a href="../P-Element.html" target="frame1">Fruits I like</a>
+				</li>
+				<li>
+					<a href="../11表格/11.5.html" target="frame1">Table</a>
+				</li>
+			</ul>
+		</nav>	
+		</header>
+		<object name="frame1" width="300" height="100" type="text/html"></object>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DocumentSegmentatation</title>
+		<meta name="author" content="Adam Free" />
+		<meta name="description" content="A simple example" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+		<style>
+			h1,h2,h3,article > footer {
+				background: grey; color: white;
+			}
+			hgroup > h1 {margin-bottom: 0px;}
+			hgroup > h2 {background: grey;color: white; font-size: 1em; margin-top: 0px;}
+			body > head *,body > footer > * {background: transparent;color: black;}
+			/*body > section,body > section > section,
+			body > section > section > section {margin-left: 10px;}*/
+			article {border: thin black solid;padding: 10px;margin-bottom: 5px;}
+			article > footer {padding: 5px;margin: 5px; text-align: center;}
+			article > footer > nav > a {color:  white;}
+			body > article > section,
+			body > article > section > section {margin-left: 10px;}
+			body > header,body > footer {
+				border: medium solid black;padding-left: 5px; margin: 10px 0 10px 0;
+			}
+			body > nav {text-align: center;padding: 2px; border: dashed thin black;}
+			body > nav > a {padding: 2px; color: black;}
+			
+			aside {width:40%;background: white;float: right; border: thick solid black; margin-left: 5px;}
+			aside > h1 {background: white;color: black;text-align: center;}
+			details {border: thin black solid;padding: 10px; margin-bottom: 5px;}
+			details > summary {font-weight: bold;}
+		</style>
+	</head>
+	<body>
+		<header>
+			<hgroup>
+				<h1>Things I like</h1>
+				<h2>by LiQiang</h2>
+			</hgroup>
+			<address>Questions and Comments?<a href="mailto:lqqjob@163.com">Email me</a></address>
+			<nav>
+				<h1>Content</h1>
+				<ul>
+					<li><a href="#Fruitsilike">Fruits I Like</a></li>
+				<ul>
+					<li><a href="#morefruit">Additional Fruits</a></li>
+				</ul>
+				<li><a href="#activitiesilike">Activities I like</a></li>
+				<ul>
+					<li><a href="#tritypes">Kind of Triathlon</a></li>
+					<li><a href="#mytri">The kind of triathlon I am aiming for</a></li>
+				</ul>
+				</ul>
+			</nav>
+		</header>
+		<!--<section>-->
+		<article>
+			<header>
+				<hgroup>
+					<h1 id="Fruitsilike">Fruits I like</h1>
+					<h2>How I Learned to Love</h2>	
+				</hgroup>	
+			</header>
+			<aside>
+				<h1>	Why Fruit is Healthy</h1>
+				<section>
+					Here are three reasons why everyone should eat more fruit:
+					<ol>
+						<li>Fruit contains lots of vitamins</li>
+						<li>Fruit is a source of fibre</li>
+						<li>Fruit contains few calories</li>
+					</ol>
+				</section>
+			</aside>
+			I like apples and oranges I like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and orangesI like apples and oranges
+			<section>
+				<h2 id="morefruit">Additional fruits</h2>
+				I also like bananas,mangoes,cherries,apricots,plums,peaches,and grapes.
+				<section>
+					<h3>More information</h3>
+					You see other fruites I like <a href="fruitelist.html">here</a>
+				</section>
+			</section>
+			<footer>
+				<nav>
+					More Information <a href="http://fruite.org">Learn About Fruite</a>
+				</nav>
+			</footer>
+			
+		<!--</section>-->
+		</article>
+		<article>
+			
+		
+		<header>
+			<h1 id="activitiesilike">Activities I like</h1>
+		</header>
+		<section>
+			<p>I like swim cycle and run. I am in training for my first triathlon,but it is hard work.</p>
+			<details>
+				<summary>Kinds of Triathlon</summary>
+				There are different kinds of triathlon - sprint,Olympic and so on.
+				I am aiming for Olympic,which consists of the following:
+				<ol>
+					<li>1.5km swim</li>
+					<li>40km cycle</li>
+					<li>10km run</li>
+				</ol>
+			</details>
+			<!--<h2 id="tritypes">Kinds of Triathlon</h2>
+			<section>
+				There are different kinds of triathlon-sprint,Olympic and so on.
+				<h3 id="mytri">The kind of triathlon I am aiming for</h3>
+				I am aiming for Olympic,which consists of the following:
+				<ol>
+					<li>1.5km swim</li>
+					<li>40km cycle</li>
+					<li>10km run</li>
+				</ol>
+			</section>-->
+		</section>
+		<footer>
+			<nav>
+				More Information:
+				<a href="http://triarhion.org">Learn More About Triathlons</a>
+			</nav>
+		</footer>
+		
+		</article>
+		<footer id="mainfooter">
+			&#169;2017,LiQiang.<a href="http://apress.com">Visit Apress</a>
+		</footer>
+	</body>
+</html>

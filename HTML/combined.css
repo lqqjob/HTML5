@@ -1,0 +1,6 @@
+@charset "utf-8";
+@import "style.css";
+span {
+	border: medium black dashed;
+	padding: 10px;
+}
