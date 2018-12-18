@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用伪元素选择器</title>
+		<style type="text/css">
+			/* ::first-line选择器 匹配文本块的首行 
+			 * 也可以作为修饰符跟其他选择器一块使用
+			 * 例如： P::first-line
+			 * */
+			::first-line {
+				background-color: gray;
+				color: white;
+			}
+			
+			/* ::first-letter选择器 选择文本块的首字母 */
+			
+			::first-letter{
+				color: white;
+				border: thin black solid;
+				background-color: gray;
+				padding: 4px;
+			}
+			/* :before 选择器 和 :after 选择器
+			 * :befor 在选中元素的内容之前插入内容
+			 * :after 在选中元素的内容之后插入内容
+			 *  */
+			
+			a:before {
+				content: "Click here to";
+			}
+			a:after {
+				content: "!";
+			}
+			
+			/*使用CSS计数器*/
+			body {
+				counter-reset: paracount;/*counter-reset 属性为计数器设置名称 并将值设置为 1*/
+			}
+			p:before {
+				content: counter(paracount)".";
+				counter-increment: paracount;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<p>习近平强调，40年的实践充分证明，党的十一届三中全会以来我们党团结带领全国各族人民开辟的中国特色社会主义道路、理论、制度、文化是完全正确的，形成的党的基本理论、基本路线、基本方略是完全正确的。</p>
+		<p>
+			I like <span lang="en-uk" class="class2">apples</span>and oranges.
+		</p>
+		<a id="w3canchor" href="http://w3c.org">Visit the W3C website</a>
+	</body>
+</html>
