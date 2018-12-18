@@ -19,6 +19,33 @@
 			border: thin black solid;
 			padding: 4px;
 		}
+		
+		#mytable td {
+			border: thin black solid;
+			padding: 4px;
+		}
+		/*选择子元素 <第一个选择器> > <第二个选择器>
+		 * 目标元素为匹配第一个选择器的元素的直接后代，且匹配第二个选择器
+		 * 
+		 * */
+		body > * > span,tr > th {
+			color: darkgoldenrod;
+		}
+		/*相邻兄弟选择器  <第一个选择器> + <第二个选择器>
+		 * 目标元素紧跟第一个选择器的元素，且匹配第二个选择器
+		 *
+		 */
+		p + a {
+			background-color: black;
+		}
+		
+		/*普通兄弟选择器  <第一个选择器> ~ <第二个选择器>
+		 * 目标元素位于匹配第一个选择器的元素之后，且匹配第二个选择器
+		 *
+		 */
+		p ~ table {
+			font-size: x-large;
+		}
 			
 		</style>
 	</head>
@@ -28,5 +55,15 @@
 			I like <span lang="en-uk" class="class2">apples</span>and oranges.
 		</p>
 		<a id="w3canchor" href="http://w3c.org">Visit the W3C website</a>
+		<table id="mytable">
+			<tr><th>Name</th><th>City</th></tr>
+			<tr><td>Adam</td><td>London</td></tr>
+			<tr><td>Joe</td><td>New York</td></tr>
+		</table>
+		<table id="othertable">
+			<tr><th>Name</th><th>City</th></tr>
+			<tr><td>Adam</td><td>London</td></tr>
+			<tr><td>Joe</td><td>New York</td></tr>
+		</table>
 	</body>
 </html>
