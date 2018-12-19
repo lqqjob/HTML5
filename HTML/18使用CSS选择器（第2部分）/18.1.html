@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用结构性伪类选择器</title>
+		<!--使用结构性伪类选择器能够根据元素在文档中的位置选择元素。这类选择器都有一个冒号字符前缀（:）-->
+		<!--使用根元素选择器
+		:root选择器匹配文档中的根元素-->
+		<style type="text/css">
+			:root{
+				border:thin black solid;
+				padding: 4px;
+			}
+			/*使用子元素选择器
+			使用子元素选择器匹配直接包含在其他元素中的单个元素。
+			：first-child 选择元素的第一个子元素
+			：last-child 选择元素的最后一个子元素
+			：only-child 选择元素的唯一子元素
+			：only-of-type 选择元素指定类型的唯一子元素*/
+			
+			:first-child {
+				background-color: cyan;
+			}
+			
+			p>span:first-child {
+				color: red;
+			}
+		
+			:last-child {
+				border: thin black solid;
+				padding: 1px;
+				border-color: blue;
+			}
+			:only-child {
+				font: "bodoni mt black";
+				font-size:xx-large;
+			}
+			:only-of-type {
+				text-align: center;
+			}
+			/*使用：nth-child
+			 * 跟子元素选择器相似，区别是这类选择器可以指定一个索引以匹配特定位置的元素
+			 * ：nth-child(n) 选择父元素的第n个子元素
+			 * ：nth-last-child(n) 选择父元素的倒数第n个子元素
+			 * ：nth-of-type(n) 选择父元素定义类型的第n个子元素
+			 * ：nth-last-of-type(n) 选择父元素定义类型的倒数第n个子元素
+			 * */
+			body > :nth-child(2) {
+				border-color: gold;
+				border: thin solid;
+				padding: 100px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<p>习近平强调，40年的实践充分证明，党的十一届三中全会以来我们党团结带领全国各族人民开辟的中国特色社会主义道路、理论、制度、文化是完全正确的，形成的党的基本理论、基本路线、基本方略是完全正确的。</p>
+		<p>
+			I like <span lang="en-uk" class="class2">apples</span>and oranges.
+		</p>
+		<a id="w3canchor" href="http://w3c.org">Visit the W3C website</a>
+	</body>
+</html>
