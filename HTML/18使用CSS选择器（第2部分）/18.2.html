@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用UI伪类选择器</title>
+		
+		<style type="text/css">
+			/*选择启用或禁用元素
+			：enabled
+			：disable*/
+			
+			:enabled {
+				color: blue;
+			}
+			
+			/*选择已勾选的元素
+			 * ：check
+			 * */
+			:checked + span {
+				background-color: red;
+				color: white;
+				padding: 4px;
+				border: medium solid black;
+			}
+			/*选择默认元素
+			 * ：default
+			 * */
+			:default {
+				outline: medium solid red;
+			}
+			/*选择有效和无效的input
+			 * ：valid和：invalid选择器分别匹配符合和不符合它们的输入验证要求的input。
+			 * 
+			 */
+			:valid {
+				outline: medium solid red;
+			}
+			:invalid {
+				outline: medium solid green;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<textarea> This is an enabled textArea</textarea>
+		<br />
+		<textarea disabled> This is an disabled textArea</textarea>
+		<form method="post" action="https://www.baidu.com">
+			<p>
+				<label for="apples"> Do you like apples:</label>
+				<input type="checkbox" id="apples" name="apples"/>
+				<span>This will go red when checked</span>
+			</p>
+			<input type="submit" value="Submit"/>
+			<p>
+				<label for="name">Name:<input id="name" name="name" /></label>
+			</p>
+			<button type="submit">Submit</button>
+			<button type="reset">Reset</button>
+			<p>
+				<label for="name1">Name:<input required id="name1" name="name1" /></label>
+			</p>
+			<p>
+				<label for="City">City:<input required id="city" name="city" /></label>
+			</p>
+			<button type="submit">Submit</button>
+
+		</form>
+	</body>
+</html>
