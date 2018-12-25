@@ -38,6 +38,27 @@
 			:invalid {
 				outline: medium solid green;
 			}
+			/*选择限定范围的input
+			 *:in-range 
+			 *:out-of-range
+			 */
+			:in-range {
+				outline: medium solid yellow;
+			}
+			:out-of-range {
+				outline: medium solid deepskyblue;
+			}
+			
+			/*选择必需和可选的input元素
+			 * :required
+			 * :optional
+			 */
+			:required {
+				background: blueviolet;
+			}
+			:optional {
+				background: darkcyan;
+			}
 		</style>
 		
 	</head>
@@ -64,6 +85,22 @@
 				<label for="City">City:<input required id="city" name="city" /></label>
 			</p>
 			<button type="submit">Submit</button>
+			<p>
+				<label for="price">
+					$ per unit in your area:
+					<input type="number" min="0" max="100" value="1" id="price" name="price"/>
+				</label>
+				<label for="price1">
+					$ per unit in your area:
+					<input type="number" min="0" max="100" value="1" id="price1" name="price1" required/>
+				</label>
+				
+				<label for="price2">
+					$ per unit in your area:
+					<input type="number" min="0" max="100" value="1" id="price2" name="price2"/>
+				</label>
+				<input type="submit" value="Submit"/>
+			</p>
 
 		</form>
 	</body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用动态伪类选择器</title>
+		<style type="text/css">
+			/*使用:link和:visited选择器
+			 *:link 选择器匹配超级链接
+			 * :visited选择器匹配用户已访问的超级链接
+			 */
+			:link {
+				border: thin black solid;
+				background-color: lightblue;
+				padding: 4px;
+				color: red;
+			}
+			:visited {
+				background-color: gray;
+				background-color: white;
+			}
+			/*使用:hover选择器
+			 * :hover 选择器匹配用户鼠标悬停在其上的任意元素
+			 */
+			:hover {
+				border: thick black solid;
+				padding: 4px;
+			}
+			
+			/*使用:active选择器
+			 * 用于匹配当前被用户激活的元素
+			 */
+			:active {
+				border: thin red solid;
+				padding: 4px;
+			}
+			/*使用:focus选择器
+			 * 匹配当前获得焦点的元素
+			 */
+			:focus {
+				border: thick chartreuse solid;
+				padding: 4px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<a href="https://www.baidu.com" target="_blank">Visit BaiDu</a>
+		<p>
+			听觉样式表可把语音合成与<span>音响</span>效果相组合，使用户可以听到信息，而无需进行阅读。
+		</p>
+		<a href="https://www.hao123.com">Visit hao123</a>
+		</p>
+		<button>Hello</button>
+		</p>
+		<form>
+			Name:<input type="text" name="name"/>
+			<p/>
+			City:<input type="text" name="city"/>
+			<p/>
+			<input type="submit" />
+		</form>
+	</body>
+</html>
