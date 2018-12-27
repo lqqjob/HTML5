@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用其他伪类选择器</title>
+		<style type="text/css">
+			/*使用否定选择器
+			 * :not(<选择器>)
+			 * 对括号内的选择器取反
+			 */
+			a:not([href *= "baidu"]) {
+				border: thin black solid;
+				padding: 4px;
+			}
+			/*使用:empty选择器
+			 * 选择器用于匹配没有定义任何子元素的元素
+			 * 这个不太好演示
+			 */
+			
+			/*使用:lang选择器
+			 * 匹配基于lang全局属性的元素
+			 * ：lang(<目标语言>)
+			 */
+			:lang(en) {
+				border: thin red solid;
+				padding: 4px;
+			}
+			
+			/*使用:target选择器
+			 * 匹配URL片段标示符指向的元素
+			 * 
+			 */
+			:target {
+				color: yellow;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<a href="https://www.baidu.com">百度</a>
+		<p/>
+		<a href="https://www.hao123.com">好123</a>
+		<p />
+		<a lang="en" id="apressscanchor" class="class1 class2" href="http://baidu1.com">Visit the Apress</a>
+		<p>中共中央政治局12月27日召开会议，审议<span lang="en-uk">《中国共产党政法工作条例》</span>。中共中央总书记习近平主持会议。</p>
+		<a lang="en-us" id="apressscanchor" class="class1 class2" href="http://baidu2.com">Visit the Apress</a>
+		<p />
+		<a  id="mytarget">国务院新闻办今天举行新闻发布会，中国卫星导航系统管理办公室主任冉承其在发布会上介绍，目前，北斗系统在轨卫星和地面系统工作稳定，经全球范围测试评估，系统性能满足预期，具备全球服务能力。</a>
+		</p>
+		<a  href="#mytarget">target示例</a>
+
+	</body>
+</html>
