@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>应用边框样式</title>
+		<style type="text/css">
+			/*定义边框宽度
+			 * border-width
+			 * 可以是em、px、cm表达的长度值
+			 * 也可以是边框绘制区域的宽度的百分数 thin medium thick
+			 * */
+			
+			/*定义边框样式
+			 * border-style
+			 * solid 实现边框
+			 * none 、dashed、 dotted 、double 、groove 、inset、 outset、 ridge 
+			 */
+			
+			/*为一条边应用边框样式
+			 * border-top-width style color
+			 * border-bottom-width
+			 * border-left-width
+			 * border-right-width
+			 */
+			p {
+				border-width:5px;
+				border-style: solid;
+				border-color: black;
+				border-left-width: 10px;
+				border-left-style: dotted;
+				border-top-width: 10px;
+				border-top-style: dotted;
+			}
+			
+			/*使用border简写属性
+			 * <宽度><样式><颜色>
+			 */
+			p + #Abbreviation {
+				border: medium black solid;
+				border-top: solid 10px;
+			}
+			/*创建圆角边框
+			 * border-top-left-radius
+			 * border-top-right-radius
+			 * border-bottom-left-radius
+			 * border-bottom-right-radius
+			 * border-radius
+			 */
+			p + #radius {
+				border: medium solid black;
+				border-top-left-radius: 20px 15px;
+			}
+			
+			/*使用border-radius简写*/
+			
+			P + #first {
+				border: medium black solid;
+				padding: 4px;
+				border-radius: 20px/15px;
+			}
+			
+			P + #second {
+				padding: 30px;
+				border:medium black solid;
+				border-radius: 50% 20px 25% 5em / 25% 15px 40px 55%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p>
+			2018年11月27日至12月6日，习近平主席历经9天，行程逾4万公里，出访欧洲、拉美并出席二十国集团领导人峰会。
+		</p>
+		<p id="Abbreviation">
+			此次领航之旅校准全球经济治理前进方向，引领中国同主要大国关系行稳致远，彰显中国在国际舞台上的影响力、感召力、塑造力。
+		</p>
+		<p id="radius">
+			欧洲拉美之行，推升了“一带一路”合作发展，开辟了中欧、中拉关系广阔前景。
+		</p>
+		<p id="first">
+			12月27日，习近平总书记主持召开中共中央政治局会议，审议《中国共产党政法工作条例》。这是党中央对政法工作的一次重大部署，具有鲜明而强烈的时代感，影响深远，意义重大。习近平总书记的重要讲话，明确了新时代坚持党对政法工作的领导这一根本的政治原则和政治要求，各级政法部门要深刻学习领会，全面贯彻落实到政法工作具体实践中，开创新时代政法工作新局面。
+		</p>
+		<p id="second">纲举目张，执本末从。党的领导是中国特色社会主义法治之魂，党的领导是政法工作的最高原则、最大优势。习近平总书记多次强调，我们全面推进依法治国，绝不是要虚化、弱化甚至动摇、否定党的领导，而是为了进一步巩固党的执政地位、改善党的执政方式、提高党的执政能力，保证党和国家长治久安。政法系统要以此为遵循，确保在政治立场、政治方向、政治原则、政治道路上同以习近平同志为核心的党中央保持高度一致，矢志不渝做社会主义法治国家的守护者和建设者。</p>
+	</body>
+</html>
