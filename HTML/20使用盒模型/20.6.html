@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置元素的盒模型</title>
+		<style type="text/css">
+			/*认识块级元素 block*/
+			 #block {
+				border: medium solid black;
+			}
+			p #block {
+				display: block;
+				border:medium double black;
+				margin: 2px;
+			}
+			
+			/*认识行内元素 inline*/
+			p + #inline {
+				display: inline;
+			}
+			p #spaninline {
+				display: inline;
+				border:medium double black;
+				margin: 2px;
+				width: 10em;
+				height: 2em;
+			}
+			/*认识行内块级元素 inline-block
+			 * 
+			 * 
+			 */
+			p+#inlineblock {
+				display: inline;
+			}
+			p #spaninlineblock {
+				display: inline-block;
+				border:medium double black;
+				margin: 2px;
+				width: 10em;
+				height: 2em;
+				overflow: scroll;
+			}
+			
+			/*认识插入元素*/
+			#run-in {
+				display: block;
+			}
+			#spanrun-in {
+				display: run-in;
+				border: medium double black;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block">
+		新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p id="block">
+			在使用Git的过程中，我们喜欢有的文件比如日志，临时文件，<span id="block">编译的中间文件等不要提交到代码仓库</span>，这时就要设置相应的忽略规则，来忽略这些文件的提交。简单来说一个场景：在你使用git add .的时候，遇到了把你不想提交的文件也添加到了缓存中去的情况，比如项目的本地配置信息，如果你上传到Git中去其他人pull下来的时候就会和他本地的配置有冲突，所以这样的个性化配置文件我们一般不把它推送到git服务器中，但是又为了偷懒每次添加缓存的时候都想用git add .而不是手动一个一个文件添加，该怎么办呢？很简单，git为我们提供了一个.gitignore文件只要在这个文件中申明那些文件你不希望添加到git中去，这样当你使用git add .的时候这些文件就会被自动忽略掉。
+		</p>
+		<p id="inline">
+			对于经常使用Git的朋友来说，.gitignore配置一定不会陌生。这种方式通过在项目的某个文件夹下定义.gitignore文件，在该文件中定义相应的忽略规则，来管理当前文件夹下的文件的Git提交行为。.gitignore 文件是可以提交到公有仓库中，这就为该项目下的所有开发者都共享一套定义好的忽略规则。在.gitingore 文件中，遵循相应的语法，在每一行指定一个忽略规则。
+		</p>
+		<p id="inline">
+            这种方式只是临时指定该项目的行为，需要编辑当前项目下的 .git/info/exclude文件，<span id="spaninline">然后将需要忽略提交的文件写入其中</span>。需要注意的是，这种方式指定的忽略文件的根目录是项目根目录。
+		</p>
+		<p id="inlineblock">
+			除了可以在项目中定义 .gitignore 文件外，还可以设置全局的git .gitignore文件来管理所有Git项目的行为。这种方式在不同的项目开发者之间是不共享的，是属于项目之上Git应用级别的行为。这种方式也需要创建相应的 .gitignore 文件，可以放在任意位置。然后在使用以下命令配置Git：
+		</p>
+		<p id="inlineblock">
+			首先要强调一点，这个文件的完整文件名就是".gitignore"，<span id="spaninlineblock">注意最前面有个“.”。一般来说每个Git项目中都需要一个“.gitignore”文件，</span>这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。实际项目中，很多文件都是不需要版本管理的，比如Python的.pyc文件和一些包含密码的配置文件等等。这个文件的内容是一些规则，Git会根据这些规则来判断是否将文件添加到版本控制中。
+		</p>
+		
+		<p>
+			<button>Inline</button>
+			<button>None</button>
+		</p>
+		<script>
+			var buttons = document.getElementsByTagName("BUTTON");
+			for (var i = 0;i < buttons.length; i ++) {
+				buttons[i].onclick = function(e) {
+					document.getElementById("inline").style.display = e.target.innerHTML;
+				}
+			}
+		</script>
+		
+		<p id="run-in">
+			1月21日，习近平在省部级主要领导干部坚持底线思维着力防范化解重大风险专题研讨班开班式上发表重要讲话，强调要坚持底线思维，增强忧患意识，提高防控能力，着力防范化解重大风险，保持经济持续健康发展和社会大局稳定。
+		</p>
+		<span id="spanrun-in">
+			在此之前，习近平曾在多个场合强调“底线思维”。他为什么如此重视“底线思维”？如何用好底线思维？梳理习近平对“底线思维”的重要论述，我们可以从中找到答案。
+		</span>
+	</body>
+</html>

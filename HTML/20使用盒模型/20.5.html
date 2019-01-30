@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>控制元素的可见性</title>
+		<style type="text/css">
+			/*控制元素的可见性
+			 * collapse 不可见 不占空间 (safari 效果跟 hidden一样)
+			 * hidden   不可见 占空前
+			 * visible  可见
+			 */
+			tr > th {
+				text-align: left;
+				background: gray;
+				color: white;
+			}
+			tr>th:only-of-type {
+				text-align: right;
+				background: lightgray;
+				color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<table >
+			<tr>
+				<th>Rank</th><th>Name</th><th>Color</th><th>Size</th>
+			</tr>
+			<tr id="fistchoice">
+				<th>Favorite:</th><td>Apple</td><td>Green</td><td>Medium</td>
+			</tr>
+			<tr>
+				<th>2nd Favorite:</th><td>Oranges</td><td>Orange</td><td>Large</td>
+			</tr>
+
+		</table>
+		<p>
+			<button>Visible</button>
+			<button>Collapse</button>
+			<button>Hidden</button>
+		</p>
+		<script>
+			var buttons = document.getElementsByTagName("BUTTON");
+			for (var i = 0;i < buttons.length; i ++) {
+				buttons[i].onclick = function(e) {
+					document.getElementById("fistchoice").style.visibility = e.target.innerHTML;
+				}
+			}
+		</script>
+	</body>
+</html>
