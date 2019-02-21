@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定位内容</title>
+		<style type="text/css">
+			img {
+				top: 5px;
+				left: 150px;
+				border: medium double black;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			本文系版权作品，未经授权严禁转载。海外视野，中国立场，登陆人民日报海外版官网——海外网www.haiwainet.cn或“海客”客户端，领先一步获取权威资讯。
+		</p>
+		<p>
+			为深入推进社会主义核心价值观建设，自2014年以来，北京市持续开展北京榜样学习宣传活动，推出了一大批立得住、叫得响、传得开的榜样人物。北京榜样优秀群体，就是这些人物中事迹厚重、影响较大的50位年榜荣誉获得者。他们有的勇攀科技高峰，致力关键核心技术自主创新，在重大科技领域实现原创性突破；有的扎根城乡基层，服务一方百姓，办了许多暖民心、解民忧的好事实事；有的身残志坚，以永不言弃的精神拼搏奋斗，在人生的赛场上取得了骄人成绩；有的见义勇为，危急时刻挺身而出，用大无畏的行动保护了国家和他人生命财产安全；有的热心社会公益，积极参加岗位学雷锋和志愿服务，用爱和奉献帮助了群众、温暖了京城。这些源自基层、植根平凡、充满正能量的榜样人物，用实际行动深刻诠释了习近平总书记提出的首都市民“热情开朗、大气开放、积极向上、乐于助人”的优秀品质，生动展示了社会主义核心价值观建设的实际成效。
+		</p>
+		<img id="image" src="../img/图二.jpg" alt="image"/>
+		<p>
+			近一段时间以来，北京榜样优秀群体的先进事迹宣传报道后，在社会上引起热烈反响。广大干部群众认为，北京榜样优秀群体是新时代奋斗者的杰出代表，是美好幸福生活的创造者、守护者。他们在平凡的工作岗位上、普通的日常生活里，默默无闻地引领着新时代社会文明风尚，谱写了伟大的时代赞歌。许多北京市民表示，要向北京榜样优秀群体学习，胸怀大局、无私奉献，积极向上、助人为乐，以平凡的力量筑梦京华，为建设国际一流的和谐宜居之都、建设具有良好社会风气和道德风尚的文明城市，贡献自己的力量。
+		</p>
+		<p>
+			<button>Static</button>
+			<button>Relative</button>
+			<button>Absolute</button>
+			<button>Fixed</button>
+		</p>
+		<script>
+			var buttons = document.getElementsByTagName("BUTTON");
+			for (var i = 0;i < buttons.length; i ++) {
+				buttons[i].onclick = function(e) {
+					document.getElementById("image").style.position = e.target.innerHTML;
+				}
+			}
+		</script>
+	</body>
+</html>
