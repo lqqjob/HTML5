@@ -9,9 +9,23 @@
 				left: 150px;
 				border: medium double black;
 			}
+			#image1 {
+				z-index: 1;
+				top: 15px;
+				left: 150px;
+				position: fixed;
+			}
+			#image2 {
+				z-index: 2;
+				top: 25px;
+				left: 150px;
+				position: fixed;
+
+			}
 		</style>
 	</head>
 	<body>
+		<!--####################################设置定位类型####################################-->
 		<p>
 			本文系版权作品，未经授权严禁转载。海外视野，中国立场，登陆人民日报海外版官网——海外网www.haiwainet.cn或“海客”客户端，领先一步获取权威资讯。
 		</p>
@@ -36,5 +50,8 @@
 				}
 			}
 		</script>
+		<!--设置元素的层叠顺序-->
+		<img id="image1" src="../img/图1.jpg" alt="image1"/>
+		<img id="image2" src="../img/图二.jpg" alt="image2"/>
 	</body>
 </html>
