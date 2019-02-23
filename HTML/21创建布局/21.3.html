@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>创建弹性盒布局</title>
+		<style type="text/css">
+			/*创建简单的弹性盒*/
+			p {
+				width: 150px;
+				max-width: 250px;
+				border:medium double black;
+				background-color:lightgray;
+				margin: 2px;
+			}
+			#container {
+				display: -webkit-box;
+				/*处理垂直空间*/
+				-webkit-box-direction: reverse;
+				-webkit-box-align: center;
+				/*处理最大尺寸*/
+				-webkit-box-pack: center;
+			}
+			#second {
+				-webkit-box-flex:1;
+			}
+			#first {
+				-webkit-box-flex:3 ;/*是second的3倍*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<p id="first">
+				最近央视的新闻中，某流量明星新歌宣传的微博被粉丝们转发了“1亿”次，疑似数据造假，新闻中用了出道刚1年的蔡徐坤的图片，不知道是不是他呢？如果按照平台3亿活跃用户来算，每3个人中就有1人转发过，比林俊杰、张艺兴还高。AE去看到现在CXK的粉丝是2200万，由于转发破百万仅会显示“100万+”，他的每一首歌都是100万+的转发量。那这个数据有多可怕呢？让我们对比一下林俊杰、张艺兴、薛之谦等人的吧！
+			</p>
+			<p id="second">
+				凤凰网汽车讯.今天（2019年2月22日），注定是一个不孤单的日子，吉利汽车将旗下全新轿跑SUV命名为“星越”。与此同时，吉利汽车还向国际天文学联合会申请将所发现的小行星命名为“星越”，并获批准。汽车与小行星共享一个名字，这在国内还属头一遭。
+			</p>
+			<p id="third">
+				关于星越这款新车，在此之前它只有一个代号FY11，被吉利定义为高阶运动SUV，是首款基于CMA架构开发、采用溜背设计的全新SUV。就历史沿革来说轿跑SUV最早是由宝马X6开的头，并在一定范围内取得了成功，之后成为SUV阵营中最年轻、最运动、最个性的一类。
+			</p>
+		</div>
+	</body>
+</html>
