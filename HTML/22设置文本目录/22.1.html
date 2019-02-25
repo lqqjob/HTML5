@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>应用基本文本样式</title>
+		<style type="text/css">
+			#fruittext {
+				width: 400px;
+				margin: 5px;
+				padding: 5px;
+				border: medium double black;
+				background-color: lightcyan;
+				/*处理空白*/
+				white-space: pre-line;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="fruittext">
+			5年来，习近平多次考察京津冀地区，					亲自谋划，就京津冀协同发展发表了一系列讲话。                  正值京津冀协同发展的蓝图一步步变为现实之际，这项工作开展得如何，
+			
+			取得了哪些显著的成就，又如何顺应了百姓的期盼？
+		</p>
+		<p>
+			<button>Start</button>
+			<button>End</button>
+			<button>Left</button>
+			<button>Right</button>
+			<button>Justify</button>
+			<button>Center</button>
+		</p>
+		<script>
+			var buttons = document.getElementsByTagName("button");
+			for(var i = 0;i<buttons.length; i ++){
+				buttons[i].onclick = function(e) {
+					document.getElementById("fruittext").style.textAlign = e.target.innerHTML;
+				}
+			}
+		</script>
+	</body>
+</html>
