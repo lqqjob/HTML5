@@ -5,20 +5,37 @@
 		<title>应用基本文本样式</title>
 		<style type="text/css">
 			#fruittext {
-				width: 400px;
+				/*width: 400px;*/
 				margin: 5px;
 				padding: 5px;
 				border: medium double black;
 				background-color: lightcyan;
 				/*处理空白*/
 				white-space: pre-line;
+				/*设置单词之前的间距*/
+				word-spacing: 10px;
+				/*设置字母之间的间距*/
+				letter-spacing: 2px;
+				/*设置行高*/
+				line-height: 3em;
+				/*控制断词*/
+				word-wrap: break-word;
+				
+			}
+			/*指定文本方向*/
+			#ltr {
+				direction: ltr;
+			}
+			#rtl {
+				/*首行缩进*/
+				text-indent: 15%;
+				direction: rtl;
 			}
 		</style>
 	</head>
 	<body>
 		<p id="fruittext">
 			5年来，习近平多次考察京津冀地区，					亲自谋划，就京津冀协同发展发表了一系列讲话。                  正值京津冀协同发展的蓝图一步步变为现实之际，这项工作开展得如何，
-			
 			取得了哪些显著的成就，又如何顺应了百姓的期盼？
 		</p>
 		<p>
@@ -37,5 +54,7 @@
 				}
 			}
 		</script>
+		<p id="ltr">这是从左到右</p>
+		<p id="rtl">这是从右到左</p>
 	</body>
 </html>
