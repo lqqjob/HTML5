@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用过渡</title>
+		<style>
+			p {
+				padding: 5px;
+				border: medium double black;
+				background-color: lightgray;
+				font-family: sans-serif;
+			}
+			#banana {
+				font-size: x-large;
+				border:medium solid black;
+				
+				/*反向过渡，刚开始布局的时候不会应用过渡*/
+				-webkit-transition-delay: 10ms;
+				-webkit-transition-duration: 250ms;
+			}
+			#banana:hover {
+				font-size:x-large ;
+				border: medium solid white;
+				background-color: green;
+				color: white;
+				padding: 4px;
+				/*延迟时间*/
+				-webkit-transition-delay: 100ms;
+				/*持续时间*/
+				-webkit-transition-duration: 500ms;
+				/*过渡属性*/
+				-webkit-transition-property: background-color,color,padding,font-size,border;
+				/*中间值计算方式*/
+				-webkit-transition-timing-function: ease-in;
+			}
+		</style>
+	</head>
+	<body>
+		<p>这里有很多<span id="banana">香蕉</span></p>
+	</body>
+</html>
