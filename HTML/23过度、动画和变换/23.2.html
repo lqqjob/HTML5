@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画</title>
+		<style>
+			p {
+				padding: 5px;
+				border: medium double black;
+				background-color: lightgray;
+				font-family: sans-serif;
+			}
+			#banana {
+				font-size: x-large;
+				border:medium solid black;
+			}
+			#apple {
+				font-size: x-large;
+				border:medium solid black;
+				
+				/*跟过度相比，动画的优势是可以将其应用到页面的初始布局*/
+				-webkit-animation-delay: 100ms;
+				-webkit-animation-duration: 500ms;
+				-webkit-animation-iteration-count: infinite;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-name: 'GrowShrink';
+				/*重复方向*/
+				-webkit-animation-direction: alternate;
+			}
+			#banana:hover {
+				-webkit-animation-delay: 100ms;
+				-webkit-animation-duration: 500ms;
+				-webkit-animation-iteration-count: infinite;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-name: 'GrowShrink';
+				/*重复方向*/
+				-webkit-animation-direction: alternate;
+			}
+			@-webkit-keyframes GrowShrink {
+				from {
+					font-size: xx-small;
+					background-color: red;
+				}
+				50% {
+					background-color: yellow;
+					padding: 1px;
+				}
+				75% {
+					color: white;
+					padding: 2px;
+				}
+				to {
+					font-size: x-large;
+					border: medium solid white;
+					background-color: green;
+					color: white;
+					padding: 4px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+				<p>这里有很多<span id="banana">香蕉</span>、<span id="apple">苹果</span></p>
+
+	</body>
+</html>
