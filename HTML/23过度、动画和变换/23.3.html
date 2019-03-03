@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用变换</title>
+		<style>
+			p {
+				padding: 5px;
+				border: medium double black;
+				background-color: lightgray;
+				font-family: sans-serif;
+			}
+			
+			#banana {
+				font-size: x-large;
+				border: medium solid white;
+				background-color:green ;
+				color: white;
+				padding: 4px;
+				/*transform:rotate(7deg) scaleX(.9);*/
+				/*指定元素变换的起点*/
+				/*transform-origin:right top;*/ 
+			}
+			#banana:hover {
+				transition-duration:1.5s ;
+				transform:rotate(360deg);
+
+			}
+		</style>
+	</head>
+	<body>
+			<p>这里有很多<div id="banana">香蕉</div>、<span id="apple">苹果</span>,<span id="apple">梨</span>,<span id="apple">桃子</span></p>
+
+	</body>
+</html>
