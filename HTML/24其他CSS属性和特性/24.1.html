@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置元素的颜色和透明度</title>
+		<style type="text/css">
+			p {
+				padding: 5px;
+				border: medium double black;
+				background-color: lightgray;
+				font-family: sans-serif;
+			}
+			#banana {
+				font-size: x-large;
+				border: medium solid white;
+				background-color:green ;
+				color: rgba(255,255,255,0.7);
+			}
+			a:hover {
+				color: red;
+			}
+			#pear {
+				font-size: x-large;
+				border: medium solid white;
+				background-color:green ;
+				color: white;
+				/*设置元素的透明度*/
+				opacity: 0.4;
+			}
+		</style>
+	</head>
+	<body>
+			<p>这里有很多<div id="banana">香蕉</div>、<a id="apple">苹果</a>,<span id="pear">梨</span>,<span id="peach">桃子</span></p>
+
+	</body>
+</html>
