@@ -3,7 +3,53 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>设置表格的样式</title>
+		<style>
+			table {
+				/*设置相邻单元格的边框处理样式*/
+				border-collapse:separate ;
+				border-spacing:10px ;
+				
+				/*处理空单元格*/
+				empty-cells: hide;
+				/*设置标题位置*/
+				caption-side: bottom;
+				
+				/*指定表格布局*/
+				table-layout: fixed;
+				width: 100%;
+			}
+			th,td {
+				padding: 2px;
+			}
+		</style>
 	</head>
 	<body>
+		<table border="1">
+			<caption>Results of the 2011 Fruit Survey</caption>
+			<colgroup id="colgroup1">
+				<col id="Col1And2" span="2"/>
+				<col id="col3" />
+			</colgroup>
+			<colgroup id="colgroup2" span="2" />
+			<thead>
+				<tr>
+					<th>Rank</th><th>Name</th><th>Color</th><th colspan="2">Size&Vote</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Favorite:</th><td>Apples</td><td>green</td><td>Medium</td><td>500</td>
+				</tr>
+				<tr>
+					<th>2nd Favorite:</th><td>Oranges</td><td>Orange</td><td>Large</td><td>450</td>
+				</tr>
+				<tr>
+					<th>3rd Favorite:</th><td></td><td></td><td></td><td></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<th colspan="5">&copy;2011 Adam Freeman Fruit Data Enterprises</th>
+			</tfoot>
+		</table>
 	</body>
 </html>
