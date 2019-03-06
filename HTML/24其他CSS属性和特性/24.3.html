@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置列表样式</title>
+		<style>
+			ol {
+				/*设置列表标记类型*/
+				list-style-type: lower-alpha;
+			}
+			
+			ul {
+				/*使用头像作为列表标记*/
+				list-style-image: url(../favicon.ico);
+			}
+			li.inside {
+				list-style-position: inside;
+			}
+			li.outside {
+				list-style-position: outside;
+			}
+			li {
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+	<body>
+		I like apples and oranges.
+		I also like:
+		<ol>
+			<li class="inside">banana</li>
+			<li class="inside">mangoes</li>
+			<li style="list-style-type: decimal" class="inside">cherries</li>
+			<li class="inside">plums</li>
+			<li class="inside">peaches</li>
+			<li class="inside">grapes</li>
+		</ol>
+		<ul>
+			<li class="outside">banana</li>
+			<li class="outside">mangoes</li>
+			<li class="outside">cherries</li>
+			<li class="outside">plums</li>
+			<li class="outside">peaches</li>
+			<li class="outside">grapes</li>
+		</ul>
+	</body>
+</html>
