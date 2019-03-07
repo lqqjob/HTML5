@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用Document元数据</title>
+	</head>
+	<body>
+		<script>
+			//获取文档信息
+			document.writeln("<pre>");
+			document.writeln("characterSet: " + document.characterSet);
+			document.writeln("charset: " + document.charset);
+			document.writeln("compatMode: " + document.compatMode);
+			document.writeln("defaultCharset: " + document.defaultCharset);
+			document.writeln("dir: " + document.dir);
+			document.writeln("domain: " + document.domain);
+			document.writeln("lastModified: " + document.lastModified);
+			document.writeln("referrer: " + document.referrer);
+			document.writeln("title: " + document.title);
+			document.writeln("</pre>");	
+		</script>
+		<script>
+			document.writeln("<pre>");
+			//			使用 location 对象
+			document.writeln("protocol: " + document.location.protocol);
+			document.writeln("host: " + document.location.host);
+			document.writeln("hostname: " + document.location.hostname);
+			document.writeln("port: " + document.location.port);
+			document.writeln("pathname: " + document.location.pathname);
+			document.writeln("search: " + document.location.search);
+			document.writeln("hash: " + document.location.hash);
+			document.writeln("</pre>");	
+
+		</script>
+	</body>
+</html>
