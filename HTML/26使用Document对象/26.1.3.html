@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>读取和写入cookie</title>
+	</head>
+	<body>
+		<p id="cookiedata">
+			
+		</p>
+		<button id="write">Add Cookie</button>
+		<button id="update">Update Cookie</button>
+		<script>
+			var cookiecount=0;
+			document.getElementById("update").onclick = updateCookie;
+			document.getElementById("write").onclick = createCookie;
+			readCookies();
+			function readCookies() {
+				document.getElementById("cookiedata").innerHTML = document.cookie;
+			}
+			function createCookie() {
+				cookiecount ++;
+				document.cookie = "Cookie_" + cookiecount + "=Value_" + cookiecount;
+				readCookies();
+			}
+			function updateCookie() {
+				document.cookie = "Cookie_" + cookiecount + "=Update_" + cookiecount;
+				readCookies();
+			}
+		</script>
+	</body>
+</html>
