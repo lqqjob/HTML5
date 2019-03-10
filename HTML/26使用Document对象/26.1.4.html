@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>理解就绪状态</title>
+		<script>
+			document.onreadystatechange = function() {
+				if(document.readyState == "interactive") {
+					document.getElementById("pressme").onclick = function(){
+						document.getElementById("result").innerHTML = "Button Pressed";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="pressme">Press me</button>
+		<pre id="result">
+			
+		</pre>
+	</body>
+</html>
