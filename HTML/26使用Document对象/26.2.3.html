@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索元素</title>
+		<style>
+			pre {
+				border: medium double black;
+			}
+		</style>
+	</head>
+	<body>
+		<pre id="results"></pre>
+		<img id="lemon" class="fruit" name="apple" src="../favicon.ico" alt="lemon"/>
+		<p>在今年政府工作报告提到的一揽子减税降费政策中，一组数据引人关注：“下调城镇职工基本养老保险单位缴费比例，各地可降至16%”，同时，“继续提高退休人员基本养老金”，至今已实现15连涨。养老金“一减一增”之间，意味着缴的少了，发的多了。有人担心，等到我退休时，养老待遇会不会受到影响？这也成为代表委员热议的话题。</p>
+	    <img id="apple" class="fruit images" name="apple" src="../img/rili.jpeg" alt="apple" />
+	    <p>对此，政府工作报告有明确回应：“既要减轻企业缴费负担，又要保障职工社保待遇不变、养老金合理增长并按时足额发放，使社保基金可持续、企业与职工同受益。”</p>
+	    <img id="banana" src="../img/图1.jpg" alt="banana"/>
+	    <script>
+	    		var resultsElement = document.getElementById("results");
+	    		var pElems = document.getElementsByTagName("p");
+	    		resultsElement.innerHTML += "There are " + pElems.length + " p elements\n";
+	    		var fruitsElems = document.getElementsByClassName("fruit");
+	    		resultsElement.innerHTML += "There are " + fruitsElems.length + " elements in the fruits class\n";
+	    		var nameElems = document.getElementsByName("apple");
+	    		resultsElement.innerHTML += "There are " + nameElems.length + " elements with the name 'apple'\n";
+	    		//匹配所有p元素和id值为apple的img元素
+	    		var elems = document.querySelectorAll("p,img#apple");
+	    		resultsElement.innerHTML += "The selector mathched "+elems.length + " elements\n";
+	    </script>
+	</body>
+</html>
