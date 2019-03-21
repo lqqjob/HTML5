@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>在DOM树里导航</title>
+	</head>
+	<body>
+		<pre id="results"></pre>
+		<p id = "tblock">
+			There are lots of different kinds of fruit - there are over 500 varieties of <span id="banana">banana</span> alone.By the time
+			we add the countless types of <span id="apple"></span>,<span id="oranges">oranges</span>,and other well-known fruit,we are face 
+			with thousands of choices.
+		</p>
+		<img id="apple" class="fruit images" name="apple" src="../img/rili.jpeg" alt="apple" />
+	    <img id="banana" src="../13定制input元素/normal.png" alt="banana"/>
+	    <p>对此，政府工作报告有明确回应：“既要减轻企业缴费负担，又要保障职工社保待遇不变、养老金合理增长并按时足额发放，使社保基金可持续、企业与职工同受益。”</p>
+		<button id="parent">Parent</button>
+		<button id="child">First Child</button>
+		<button id="prev">Prev Sibling</button>
+		<button id="next">Next Sibling</button>
+		<script>
+			var resultsElem = document.getElementById("results");
+			var element = document.body;
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0;i < buttons.length ; i ++) {
+				buttons[i].onclick = handleButtonClick;
+			}
+			processNewElement(element);
+			function handleButtonClick(e) {
+				if(element.style){
+					element.style.backgroundColor = "white";
+				};
+				if(e.target.id == "parent" && element != document.body) {
+					element = element.parentNode;
+				}else if(e.target.id == "child" && element.hasChildNodes()) {
+					element = element.firstChild;
+				}else if(e.target.id == "prev" && element.previousSibling) {
+					element = element.previousSibling;
+				}else if(e.target.id == "next" && element.nextSibling) {
+					element = element.nextSibling;
+				}
+				processNewElement(element);
+				if(element.style){
+					element.style.backgroundColor = "lightcoral";
+				};
+			}
+			function processNewElement(elem) {
+				resultsElem.innerHTML = "Element type: " + elem + "\n";
+				releaseEvents.innerHTML += "Element id: " + elem.id + "\n";
+				resultsElem.innerHTML += "Has child nodes: " + elem.hasChildNodes() + "\n";
+				if(elem.previousSibling) {
+					resultsElem.innerHTML += ("Pre sibling is: " + elem.previousElementSibling + "\n");
+				}else {
+					resultsElem.innerHTML += "NO prev sibling\n";
+				}
+				
+				if(elem.nextSibling) {
+					resultsElem.innerHTML += ("Next sibling is: " + elem.nextElementSibling + "\n");
+				}else {
+					resultsElem.innerHTML += "NO next sibling\n";
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>
