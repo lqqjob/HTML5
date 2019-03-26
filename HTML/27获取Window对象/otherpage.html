@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Other Page</title>
+	</head>
+	<body>
+		<h1>Other page</h1>
+		<p id="msg"></p>
+		<script type="text/javascript">
+			var sel = "No selection made";
+			if(window.location.search == "?banana") {
+				sel = "Selection:Banana";
+			
+			}else if(window.location.search == "?apple") {
+				sel = "Selection:Apple";
+			}
+			document.getElementById("msg").innerHTML = sel;
+		</script>
+	</body>
+</html>
