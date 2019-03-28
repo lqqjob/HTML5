@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用跨文档传递消息</title>
+	</head>
+	<body>
+		<p id="status">Ready</p>
+		<button id="send">Send message</button>
+		<p>
+			<iframe name="nested" src="otherdomain.html" width="90%" height="75px"></iframe>
+		</p>
+		<script type="text/javascript">
+			document.getElementById("send").onclick = function() {
+				window["nested"].postMessage("I like apples","http://127.0.0.1:8020");
+				document.getElementById("status").innerHTML = "Messgae Sent";
+			}
+		</script>
+	</body>
+</html>

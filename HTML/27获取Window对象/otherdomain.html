@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>otherdomain</title>
+	</head>
+	<body>
+		<h1 id="banner">This is the nested document</h1>
+		<script>
+			
+				window.addEventListener("message",receiveMessge,false);
+				function receiveMessge (e) {
+					if(e.origin == "http://127.0.0.1:8020"){
+						displayMessage(e.data);
+					}else{
+						displayMessage("Message Discard");
+					}
+				}
+				function displayMessage(msg) {
+				document.getElementById("banner").innerHTML = msg;
+				}
+		</script>
+	</body>
+</html>
