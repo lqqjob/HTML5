@@ -2,8 +2,46 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>使用计时器</title>
 	</head>
 	<body>
+		<p id="msg"></p>
+		<button id="settime">Set Time</button>
+		<button id="cleartime">Clear Time</button>
+		<button id="setinterval">Set Interval</button>
+		<button id="clearinterval">Clear Interval</button>
+		
+		<script type="text/javascript">
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length;i ++) {
+				buttons[i].onclick = handleButtonClick;
+			}
+			var timeID;
+			var intervalID;
+			var count = 0;
+			function handleButtonClick(e) {
+				if(e.target.id == "settime") {
+					timeID = window.setTimeout(function(){
+						displayMsg("Timeout Expired");
+					},5000);
+					displayMsg("Timeout Set");
+				}else if(e.target.id == "cleartime") {
+					window.clearTimeout(timeID);
+					displayMsg("Timeout Cleared");
+				}else if(e.target.id == "setinterval") {
+					intervalID = window.setInterval(function() {
+						displayMsg("Interval expired. Counter: " + count++);
+					},2000);
+					displayMsg("Interval Set");
+				}else if(e.target.id == "clearinterval") {
+					window.clearInterval(intervalID);
+					displayMsg("Interval Cleared");
+				}
+			}
+			function displayMsg(msg) {
+				document.getElementById("msg").innerHTML = msg;
+			}
+		</script>
+		
 	</body>
 </html>
