@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>向文本块插入元素</title>
+	</head>
+	<body>
+		<p id="textblock">《论坚持推动构建人类命运共同体》，已于2018年6月由中央文献出版社出版，收入习近平有关重要文稿85篇。为适应国外读者阅读习惯，英文版在中文版基础上增加了注释、索引、缩略语等内容。该书英文版出版发行，有助于国外读者深入了解习近平关于“建设一个什么样的世界、如何建设这个世界”等关乎人类前途命运的重大课题的理论思考，了解构建人类命运共同体理念的时代背景、重大意义、主要内容、实现途径，对深刻理解习近平外交思想的丰富内涵和我国外交方针政策具有重要意义。</p>
+	<p>
+		<button id="insert">Insert Element</button>
+	</p>
+	<script>
+		document.getElementById("insert").onclick = function(){
+			var textBlock = document.getElementById("textblock");
+			textBlock.firstChild.splitText(10);
+			var newText = textBlock.childNodes[1].splitText(4).previousSibling;
+			textBlock.insertBefore(document.createElement("b"),newText).appendChild(newText);
+		}
+	</script>
+	</body>
+</html>

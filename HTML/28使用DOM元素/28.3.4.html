@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>比较元素对象</title>
+		
+		<style type="text/css">
+			table {
+				border: solid thin black;
+				border-collapse: collapse;
+				margin: 10px;
+			}
+			td {
+				padding: 4px 5px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<table border="1">
+			<thead><tr><th>Name</th><th>Color</th></tr></thead>
+			<tbody id="fruitsBody">
+				<tr id="plumrow" class="plumrow"><td>Plum</td><td>Purple</td></tr>
+			</tbody>
+		</table>
+		
+		<table border="1">
+			<thead><tr><th>Name</th><th>Color</th></tr></thead>
+			<tbody>
+				<tr id="plumrow" class="plumrow"><td>Plum</td><td>Purple</td></tr>
+			</tbody>
+		</table>
+		
+		<pre id="result"></pre>
+		<pre id="result1"></pre>
+		<script type="text/javascript">
+			var elemByID = document.getElementById("plumrow");
+			var elemByPos = document.getElementById("fruitsBody").getElementsByTagName("tr")[0];
+			if(elemByID.isSameNode(elemByPos)) {
+				document.getElementById("result").innerHTML = "Object are the same";
+			}
+			
+			var elems = document.getElementsByClassName("plumrow");
+			//多个元素带有相同的属性值，其子元素也相同并且顺序一致，那么他们就相同。
+			if(elems[0].isEqualNode(elems[1])) {
+				document.getElementById("result1").innerHTML = "Elements are equal";
+			}else {
+				document.getElementById("result1").innerHTML = "Elements are NOT equal";
+
+			}
+			
+			
+		</script>
+	</body>
+</html>

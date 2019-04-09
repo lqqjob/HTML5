@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用HTML片段</title>
+		
+		<style type="text/css">
+			table {
+				border: solid thin black;
+				border-collapse: collapse;
+				margin: 5px 2px;
+				float: left;
+			}
+			td {
+				padding: 4px 5px;
+			}
+			p {
+				clear: left;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<table border="1">
+			<thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+			<tbody>
+				<tr id="plumrow"><td>Plum</td><td>Purple</td></tr>
+				<tr id="apple"><td>Apple</td><td>Red/Green</td></tr>
+
+			</tbody>
+		</table>
+		
+		<table border="1">
+			<thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+			<tbody>
+				<tr id="plumrow"><td>Plum</td><td>Purple</td></tr>
+				<tr id="targetrow"><td colspan="2">This is placeholder</td></tr>
+			</tbody>
+		</table>
+		
+		<table border="1">
+			<thead><tr><th>Fruit</th><th>Color</th></tr></thead>
+			<tbody id="fruitsBodyInsert">
+				<tr id="targetrowinsert"><td>Placeholder</td></tr>
+			</tbody>
+		</table>
+		
+		<textarea rows="3" id="results"></textarea>
+		<p>
+			<button id="inner">Inner HTML</button>
+			<button id="outer">Outer HTML</button>
+			<button id="move">Move row</button>
+
+            <button id="ab">After Begin</button>
+			<button id="ae">After End</button>
+			<button id="bb">Before Begin</button>
+			<button id="be">Before End</button>
+
+		</p>
+		
+		<script>
+			var results = document.getElementById("results");
+			var row = document.getElementById("plumrow");
+			 function inner() {
+				//返回子元素
+				results.innerHTML = row.innerHTML;
+			}
+			 function outer() {
+				//返回当前元素及其子元素
+				results.innerHTML = row.outerHTML;
+			}
+			
+			//改变文档结构
+			 function changeFrame(){
+				var source = document.getElementById("apple");
+				var target = document.getElementById("targetrow");
+				target.innerHTML = source.innerHTML;
+				source.outerHTML = '<tr id="targetrow"><td colspan="2">This is placeholder</td><tr>'
+			}
+			//插入HTML片段
+			var targetInsert = document.getElementById("targetrowinsert");
+			var buttons = document.getElementsByTagName("button");
+			for (var i=0;i < buttons.length ;i ++) {
+				buttons[i].onclick = handleButtonPress;
+			}
+			function handleButtonPress(e) {
+				if(e.target.id == "inner") {
+					inner();
+				}else if(e.target.id == "outer") {
+					outer();
+				}else if(e.target.id == "move") {
+					changeFrame();
+				}else if(e.target.id == "ab") {
+					targetInsert.insertAdjacentHTML("afterbegin","<td>After Begin</td>");
+				}else if(e.target.id == "be") {
+				   targetInsert.insertAdjacentHTML("beforeend","<td>Before End</td>");
+
+				}else if(e.target.id == "bb") {
+				 targetInsert.insertAdjacentHTML("beforebegin","<tr><td colspan = '2'>Before Begin</td></tr>");
+
+				}else  {
+				 targetInsert.insertAdjacentHTML("afterend","<tr><td colspan = '2'>After End</td></tr>");
+
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>

@@ -4,20 +4,122 @@
 		<meta charset="UTF-8">
 		<title>设置元素的背景</title>
 		<style type="text/css">
-			/*设置背景颜色和图像*/
-			p,#image {
+			/*设置背景图像和颜色*/
+			#none{
 				border: medium solid black;
-				background-color: lightgrey;
-				background-image: url(../img/图1.jpg);
-				background-size: 12px 57px;
-				background-repeat: repeat-x;
+				background-color: lightgray;
+				background-image: url(../img/liuyifei.jpeg);
+				background-size: 40px 40px;
+				background-repeat: repeat;
 			}
+			/*设置背景图像的尺寸
+			 * contain 等比例缩放图像，使其宽度、高度中较大者与容器横向或纵向重合，背景图像始终包含在容器中
+			 * cover 等比缩放图像，使图像至少覆盖容器，有可能超出容器
+			 * auto 默认值，图像以本身尺寸完全显示
+			 */
+			p + #image-contain {
+				border: medium solid black;
+				background-color:lightgray ;
+				background-image: url(../img/liuyifei.jpeg);
+				background-size:contain ;
+				background-repeat:repeat ;
+			}
+			
+			p + #image-cover {
+				border: medium solid black;
+				background-color: lightgray;
+				background-image: url(../img/liuyifei.jpeg);
+				background-size: cover;
+				background-repeat: repeat;
+				
+			}
+			p + #image-auto {
+				border: medium solid black;
+				background-color: lightgray;
+				background-image: url(../img/liuyifei.jpeg);
+				background-size: auto;
+				background-repeat: repeat;
+				
+			}
+			
+			/*设置背景图像位置
+			 *top ,left ,right ,bottom ,center (30px 30px),(left center)
+			 * */
+			p + #image-position {
+				border: 10px double black;
+				background-color: lightgray;
+				background-image: url(../favicon.ico);
+				background-position:left center;
+				background-repeat: no-repeat;
+			}
+			/*设置元素背景附着方式
+			 * fixed 背景固定到视窗上，内容滚动时背景不滚动
+			 * local 背景附着到内容上，背景随内容一起滚动
+			 * scroll 背景固定到元素上，不会随内容一起滚动
+			 */
+			textarea {
+				border: medium solid black;
+				background-color: lightcyan;
+				background-image: url(../img/liuyifei.jpeg);
+				background-size: 60px 60px;
+				background-repeat: repeat;
+				background-attachment: fixed;
+			}
+			
+			/*设置背景图像的开始位置和裁剪样式（background-origin，background-clip）
+			 * border-box 在边框盒子内部绘制背景颜色和背景图像
+			 * padding-box 在内边距盒子绘制背景颜色和背景图像
+			 * content-box 在内容盒子绘制背景颜色和背景图像
+			 */
+			
+			p + #background-origin {
+				border: 15px  dotted black;
+				background-color: lightgray;
+				background-image: url(../img/liuyifei.jpeg);
+				background-repeat: repeat;
+				background-size: 60px 60px;
+				background-origin: content-box;
+				background-clip: content-box;
+			}
+			/*使用background的简写属性 
+			 * background:<background-color> <background-position> <background-size> <background-repeat> <background-origin> <background-clip> <background-attachment> <background-image>
+			 * 
+			 */
+			p + #background {
+				border: 10 dotted black;
+				/*background: lightgray top right no-repeat border-box content-box contain url(../img/liuyifei.jpeg);*/
+			}
+			
 		</style>
 	</head>
 	<body>
-		<p id="image">
-			中新经纬消息，春节返程高峰正月初六(2月10日)的火车票今日(1月12日)正式开售。按照国家法定节日放假安排，2月11日为节后首个工作日。对于当天要回单位上班的人而言，一定要抓紧这次难得的抢票机会。按照以往经验，春节后回程会有两个高峰。正月初五到正月初八是第一波，以上班族为主。第二波则在正月十六至正月十八，外出务工人员和学生流叠加。按照铁路部门预售规定，正月初五至初八、正月十六至十八的车票分别在1月11日至14日、1月22日至24日开售，有出行计划的旅客可提前关注。 今年春运有诸多利好消息。中国铁路首次试点的“候补购票”，节后试点车次为，四川、重庆地区始发，终到北京、沪宁杭、广东地区的所有列车。目前，这些地区的始发列车都已经开启候补购票功能，没有抢到车票的旅客可以及时提交“候补”订单排队捡漏。 日前，中铁总表示，截至1月6日，“候补购票”服务已经为旅客成功兑现6.5万笔，车票10万张，兑现率达61.3%。铁路部门提醒，没有购买到火车票的旅客可以通过12306“候补购票”功能，及时登记候补信息及时捡漏；还可以采用12306提供的接续换乘的方式，通过购买两段火车票的方式接续返程。 据悉，自2018年12月23日春运火车票发售以来，至2019年1月6日，全国铁路各种售票方式共售出车票2.0亿张，日均售出车票1332.3万张，日均同比增加189.5万张，增幅16.6%，单日售票量屡创新高。此外，据中铁总有关部门负责人介绍，今年春运，12306网站继续发挥售票主渠道的作用，日均售出车票1117.4万张，占总售票量83.9%，96.1%以上的所售车票无需验证码。 值得注意的是，从今年春运期间的火车票售票情况来看，部分热门路线仍会出现“秒光”的情况。以购买2月9日到北京的火车票为例，中新经纬客户端查询12306网站发现，广州、重庆、成都、武汉、南昌、长春、兰州、郑州等地的火车票多数线路在开售后不久便呈无法预订的状态。 关于抢火车票，有网友表示已经抢到了返程火车票，也有网友“抢到了年后回来上班的火车票，还差一张过年回去的”。
+		<p id="none">
+		新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p id="image-contain">
+		新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p id="image-cover">
+		新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p id="image-auto">
+		新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p id="image-position">
+		新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p>
+			<textarea name="textarea" rows="8" cols="30">
+				新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+			</textarea>
+		</p>
+		<p id="background-origin">
+				新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+		</p>
+		<p id="background">
+				1新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
+新华社北京1月27日电（记者李忠发、潘洁）中共中央总书记、国家主席习近平和夫人彭丽媛27日在北京会见以朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉为团长的朝鲜友好艺术团。习近平指出，2018年以来，我同金正恩委员长4次会晤，就新时期中朝两党两国关系发展达成重要共识。今年是中朝建交70周年。中方愿同朝方一道，落实好双方重要共识，更好造福两国人民，为地区和世界和平、稳定、发展、繁荣作出积极贡献。	
 		</p>
 	</body>
-	
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用元素属性</title>
+		<style>
+			p {
+				border: medium double black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<p id="textblock" class="fruit numbers" data-fruit ="apple" data-sentiment = "like">
+			1982年9月1日至11日，中国共产党第十二次全国代表大会在北京举行。邓小平致开幕词。他在开幕词中明确提出了“建设有中国特色的社会主义”的重大命题。图为邓小平在大会上致开幕词。 新华社发
+		</p>
+		<pre id="results"></pre>
+		<pre id="resultsData"></pre>
+
+		<script type="text/javascript">
+			var results = document.getElementById("results");
+			var elem = document.getElementById("textblock");
+			results.innerHTML = "Element has lang attribute: " + elem.hasAttribute("lang") + "\n";
+			results.innerHTML += "Adding lang attribute\n";
+			elem.setAttribute("lang","en-US");
+			results.innerHTML += "Attr value is: " + elem.getAttribute("lang") + "\n";
+			results.innerHTML += "Set new value for lang attribute\n";
+			elem.setAttribute("lang","en-UK");
+			results.innerHTML += "Value is now: " + elem.getAttribute("lang") + "\n";
+
+		</script>
+		<script>
+			var resultsdata = document.getElementById("resultsData");
+			var elemdata = document.getElementById("textblock");
+			for (var attr in elemdata.dataset) {
+				resultsdata.innerHTML += attr + "\n";
+			}
+			resultsdata.innerHTML += "Value of data-fruit attr: " + elemdata.dataset["fruit"];
+			resultsdata.innerHTML += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n使用attribute属性:";
+
+			//使用attribute属性
+			var attr = elemdata.attributes;
+			for (var i = 0;i < attr.length; i ++) {
+				resultsdata.innerHTML += "Name: " + attr[i].name + " Value: " + attr[i].value + "\n";
+			}
+			attr["data-fruit"].value="banana";
+			resultsdata.innerHTML += "Value of data-fruit attr: " + attr["data-fruit"];
+
+		</script>
+	</body>
+</html>

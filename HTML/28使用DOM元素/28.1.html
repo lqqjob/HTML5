@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用元素对象</title>
+	<style type="text/css">
+		p {
+			border:medium double black;
+		}
+	</style>
+	</head>
+	<body>
+		<p id="textblock" dir="ltr" lang="en-US">
+			根据“中央政法委长安剑”微信公众号消息，3月27日，中央政法委秘书长、全国扫黑办主任陈一新对第二轮、第三轮督导工作作出具体安排部署。
+
+　　陈一新表示：今年上半年，组建11个中央督导组，对21个省(区、市)及新疆生产建设兵团的扫黑除恶专项斗争开展督导，实现督导工作全覆盖。其中，今年4月初至5月初开展第二轮督导，6月初至7月初开展第三轮督导。每个督导组采取“一拖二”方式，第二轮督导天津、吉林、浙江、安徽、江西、湖南、广西、海南、贵州、云南、新疆11个省份；第三轮督导北京、内蒙古、黑龙江、上海、江苏、西藏、陕西、甘肃、青海、宁夏10个省份及新疆生产建设兵团。(冷昊阳)
+		</p>
+		<pre id="results"></pre>
+		<script type="text/javascript">
+			var results = document.getElementById("results");
+			var ele = document.getElementById("textblock");
+			results.innerHTML += "tag: " + ele.tagName + "\n";
+			results.innerHTML += "id: " + ele.id + "\n";
+			results.innerHTML += "dir: " + ele.dir + "\n";
+			results.innerHTML += "lang: " + ele.lang + "\n";
+			results.innerHTML += "hidden: " + ele.hidden + "\n";
+			results.innerHTML += "disabled: " + ele.disabled + "\n";
+		</script>
+	</body>
+</html>
