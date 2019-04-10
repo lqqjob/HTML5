@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>禁用样式表</title>
+		<style title="core styles">
+			p{
+				border:medium double black;
+				background-color: lightgray;
+			}
+			#block1 {
+				color: white;
+				border: thick solid black;
+				background-color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<div><button id="pressme">Press Me</button></div>
+		<script>
+			document.getElementById("pressme").onclick = function() {
+				document.styleSheets[0].disabled = !document.styleSheets[0].disabled;
+			}
+		</script>
+	</body>
+</html>
