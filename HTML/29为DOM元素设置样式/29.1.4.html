@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSSRuleList对象的成员</title>
+		<style title="core styles">
+			p {
+				border:medium double black;
+				background-color:lightgray ;
+			}
+			#block1 {
+				color: white;
+				border: thick solid black;
+				background-color:gray ;
+			}
+			table {
+				border:thin solid black;
+				border-collapse:collapse ;
+				margin: 5px;
+				float: left;
+			}
+			td {
+				padding: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<p id="block2">
+			希望海南处理好发展和保护的关系，着力在“增绿”、“护蓝”上下功夫，为全国生态文明建设当个表率，为子孙后代留下可持续发展的“绿色银行”。
+		</p>
+		<div><button id="pressme">Press Me</button></div>
+		<div id="placeholder" />
+		<script>
+			var placeholder = document.getElementById("placeholder");
+			processStyleSheet();
+			
+			document.getElementById("pressme").onclick = function(){
+				document.styleSheets[0].cssRules.item(1).selectorText = "#block2";
+				if(placeHolder.hasChildNodes()) {
+					var childCount = placeholder.childNodes.length;
+					for (var i = 0;i < childCount;i ++) {
+						placeholder.removeChild(placeholder.firstChild);
+					}
+				}
+				processStyleSheet();
+			}
+			
+			function processStyleSheet() {
+				var rulesList = document.styleSheets[0].cssRules;
+				for (var i = 0;i < rulesList.length; i ++) {
+
+					var rule = rulesList.item(i);
+					var newElem = document.createElement("table");
+					newElem.setAttribute("border","1");
+					addRow(newElem,"paretStyleSheet",rule.parentStyleSheet.title);
+					addRow(newElem,"selectorText",rule.selectorText);
+					addRow(newElem,"cssText",rule.cssText);
+					placeholder.appendChild(newElem);
+
+				}
+			}
+			function addRow(elem,header,value) {
+				elem.innerHTML += "<tr><td>" + header + ":</td><td>" + value + "</td></tr>";	
+			}
+		</script>
+	</body>
+</html>

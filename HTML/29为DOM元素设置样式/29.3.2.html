@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用常规属性</title>
+		<style title="core styles">
+
+			p {
+				color: white;
+				border: medium double black;
+				background-color: lightcyan;
+				padding-top:5px ;
+			}
+			table {
+				border: thin solid black;
+				border-collapse: collapse;
+				margin: 5px;
+				float: left;
+			}
+			td {
+				padding: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<div><button id="pressme">Press Me</button></div>
+		<div id="placeholder" />
+		<script type="text/javascript">
+			var placeholder = document.getElementById("placeholder");
+			displayStyles();
+			document.getElementById("pressme").onclick = function() {
+				var styleDeclr = document.styleSheets[0].cssRules[0].style;
+				styleDeclr.setProperty("background-color","lightgray","important");
+				styleDeclr.setProperty("padding-top","20px");
+				styleDeclr.setProperty("color","black");
+				displayStyles();
+			};
+			
+			function displayStyles() {
+				if(placeholder.hasChildNodes()) {
+					var childCount = placeholder.childNodes.length;
+					for (var i = 0;i < childCount;i ++) {
+						placeholder.removeChild(placeholder.firstChild);
+					}
+				}
+				
+				var newElem = document.createElement("table");
+				newElem.setAttribute("border","1");
+				var style = document.styleSheets[0].cssRules[0].style;
+//				 addRow(newElem,"border",style.getPropertyValue("border"));
+//				 addRow(newElem,"color",style.getPropertyValue("color"));
+//				 addRow(newElem,"padding-top",style.getPropertyValue("padding-top"));
+//				 addRow(newElem,"background-color",style.getPropertyValue("background-color"));
+							
+//				以程序方式探索属性
+				for(var i = 0;i < style.length; i ++) {
+					addRow(newElem,style[i],style.getPropertyValue(style[i]),style.getPropertyPriority(style[i]));
+				}
+				
+				placeholder.appendChild(newElem);
+				 
+			}
+			
+			function addRow(elem,header,value,priority) {
+				elem.innerHTML += "<tr><td>" + header + ":</td><td>" + value + "</td><td>"+ priority +"</td></tr>";	
+			}
+		</script>
+	</body>
+</html>
