@@ -29,8 +29,14 @@
 		<div><button id="pressme">Press Me</button></div>
 		<div id="placeholder" />
 		<script type="text/javascript">
+						document.writeln("style.length1");
+
 			var placeholder = document.getElementById("placeholder");
 			displayStyles();
+									document.writeln("style.length1");
+
+						document.writeln("style.length2");
+
 			document.getElementById("pressme").onclick = function() {
 				var styleDeclr = document.styleSheets[0].cssRules[0].style;
 				styleDeclr.setProperty("background-color","lightgray","important");

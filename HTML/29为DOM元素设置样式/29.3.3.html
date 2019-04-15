@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用细粒度CSS DOM对象</title>
+		<style title="core styles">
+
+			p {
+				color: white;
+				background-color: lightcyan !important;
+				padding:7px !important;
+			}
+			table {
+				border: thin solid black;
+				border-collapse: collapse;
+				margin: 5px;
+				float: left;
+			}
+			td {
+				padding: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<div id="placeholder"> </div>
+		<script type="text/javascript">
+			var placeholder = document.getElementById("placeholder");
+			displayStyles();
+			function displayStyles() {
+				var newElem = document.createElement("table");
+				newElem.setAttribute("border","1");
+				var style = document.styleSheets[0].cssRules[0].style;
+				for (var i = 0;i < style.length;i ++) {
+					var val = style.getPropertyCSSValue(style[i]);
+					if(val.primitiveType == CSSPrimitiveValue.CSS_PX){
+						addRow(newElem,style[i],val.getFloatValue(CSSPrimitiveValue.CSS_PX),"(pixels)");
+						addRow(newElem,style[i],val.getFloatValue(CSSPrimitiveValue.CSS_PT),"(point)");
+						addRow(newElem,style[i],val.getFloatValue(CSSPrimitiveValue.CSS_IN),"(inches)");
+					}else if (val.primitiveType == CSSPrimitiveValue.CSS_RGBCOLOR) {
+						var color = val.getRGBColorValue();
+						addRow(newElem,style[i],color.red.cssText + " " + color.green.cssText + " " + color.blue.cssText,"(color)")
+					}else {
+						addRow(newElem,style[i],val.cssText,"(other)")
+					}
+				}
+				placeholder.appendChild(newElem);
+			}
+			function addRow(elem,header,value,units) {
+
+				elem.innerHTML += "<tr><td>" + header + ":</td><td>" + value + "</td><td>"+ units +"</td></tr>";	
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用计算样式</title>
+		<style title="core styles">
+
+			p {
+				padding:7px !important;
+			}
+			table {
+				border: thin solid black;
+				border-collapse: collapse;
+				margin: 5px;
+				float: left;
+			}
+			td {
+				padding: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<div id="placeholder"> </div>
+		<script>
+			var placeholder = document.getElementById("placeholder");
+			displayStyles();
+			
+			function displayStyles() {
+				var newElem = document.createElement("table");
+				newElem.setAttribute("border","1");
+				
+				var targetElem = document.getElementById("block1");
+				var style = document.defaultView.getComputedStyle(targetElem);
+				addRow(newElem,"Property Count",style.length);
+				addRow(newElem,"margin-top",style.getPropertyValue("margin-top"));
+				addRow(newElem,"font-size",style.getPropertyValue("font-size"));
+				addRow(newElem,"font-family",style.getPropertyValue("font-family"));
+				
+				placeholder.appendChild(newElem);
+			}
+			function addRow(elem,header,value) {
+				elem.innerHTML += "<tr><td>" + header + ":</td><td>" + value + "</td></tr>";
+			}
+		</script>
+	</body>
+</html>
