@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实现简单的内联事件处理器</title>
+		<style title="core styles">
+
+			p {
+				background: gray;
+				color: white;
+				padding: 10px;
+				margin: 5px;
+				border: thin solid black;
+			}
+		
+		</style>
+		<script type="text/javascript">
+			function handleMouseOver(elem) {
+				elem.style.background='white';
+				elem.style.color = 'black';
+			}
+			function handleMouseOut(elem) {
+				elem.style.removeProperty('color');
+				elem.style.removeProperty('background');
+			}
+		</script>
+	</head>
+	<body>
+		<p onmousemove="this.style.background = 'white',this.style.color = 'black'" onmouseout="this.style.removeProperty('color');this.style.removeProperty('background')">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		
+		<p onmousemove="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+	</body>
+</html>
