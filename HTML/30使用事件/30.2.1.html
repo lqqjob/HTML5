@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>按类型区分事件</title>
+		<style type="text/css">
+			p{
+				background: gray;
+				color: white;
+				padding: 10px;
+				margin: 5px;
+				border: thin solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<p id="block2">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		
+		<script type="text/javascript">
+			var pElems = document.getElementsByTagName("p");
+			for (var i = 0;i < pElems.length; i ++) {
+				pElems[i].onmouseover = handleMouseEvent;
+				pElems[i].onmouseout = handleMouseEvent;
+			}
+			
+			function handleMouseEvent(e) {
+				if(e.type=="mouseover") {
+					e.target.style.background = 'white';
+					e.target.style.color = 'black';
+				}else {
+					e.target.style.removeProperty('color');
+					e.target.style.removeProperty('background');
+				}
+			}
+			
+		</script>
+	</body>
+</html>

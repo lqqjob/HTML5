@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>理解事件流</title>
+		<style type="text/css">
+			p {
+				background: gray;
+				color: white;
+				padding: 10px;
+				margin: 5px;
+				border: thin solid black;
+			}
+			
+			span {
+				background: white;
+				color:black;
+				padding: 2px;
+				cursor: default;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要<span id="banana">jinshan</span>。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<pre id="pre"></pre>
+		<script type="text/javascript">
+			var banana = document.getElementById("banana");
+			var textBlock = document.getElementById("block1");
+			
+			banana.addEventListener("mouseover",handleMouseEvent);
+			banana.addEventListener("mouseout",handleMouseEvent);
+			//捕捉
+			textBlock.addEventListener("mouseover",handleDescendantEvent,true);
+			textBlock.addEventListener("mouseout",handleDescendantEvent,true);
+			
+			//冒泡阶段
+			textBlock.addEventListener("mouseover",handleBubbleMouseEvent,false);
+			textBlock.addEventListener("mouseout",handleBubbleMouseEvent,false);
+			
+			function handleBubbleMouseEvent(e) {
+				if(e.type == "mouseover" && e.eventPhase == Event.BUBBLING_PHASE) {
+					e.target.style.textTransform = "uppercase";
+				}else if(e.type == "mouseout" && e.eventPhase == Event.BUBBLING_PHASE) {
+					e.target.style.textTransform = "none";
+				}
+			}
+			
+			var pre = document.getElementById("pre");
+			
+			function handleDescendantEvent(e) {
+				pre.innerHTML += "\n" + e.target + e.type + e.eventPhase + Event.CAPTURING_PHASE+ Event.AT_TARGET+Event.BUBBLING_PHASE;
+				if(e.type == "mouseover" && e.eventPhase == Event.CAPTURING_PHASE) {
+					e.target.style.border = "thick solid red";
+					e.currentTarget.style.border = "thick double black";
+				}else if(e.type == "mouseout" && e.eventPhase ==Event.CAPTURING_PHASE) {
+					e.target.style.removeProperty("border");
+					e.currentTarget.style.removeProperty("border");
+				}
+				//阻止事件流前进
+//				e.stopPropagation();
+//				e.stopImmediatePropagation();
+			}
+			
+			function handleMouseEvent(e) {
+				if(e.type=="mouseover") {
+					e.target.style.background = 'black';
+					e.target.style.color = 'white';
+				}else {
+					e.target.style.removeProperty('color');
+					e.target.style.removeProperty('background');
+				}
+			}
+		</script>
+	</body>
+</html>

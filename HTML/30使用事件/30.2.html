@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用DOM和事件对象</title>
+		<style type="text/css">
+			p{
+				background: gray;
+				color: white;
+				padding: 10px;
+				margin: 5px;
+				border: thin solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<p id="block2">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<button id="pressme">Press me</button>
+		<script type="text/javascript">
+			var pElems = document.getElementsByTagName("p");
+			for (var i = 0;i < pElems.length;i ++) {
+				pElems[i].onmouseover = handleMouseOver;
+				pElems[i].onmouseout = handleMouseOut;
+				//使用addEventListener和removeEventListener方式
+				pElems[i].addEventListener("mouseover",handleMouseOver);
+				pElems[i].addEventListener("mouseout",handleMouseOut);
+			}
+			
+			document.getElementById("pressme").onclick = function(){
+				document.getElementById("block2").removeEventListener("mouseout",handleMouseOut);
+			}
+			
+			function handleMouseOver(e) {
+				e.target.style.background = 'white';
+				e.target.style.color = 'black';
+			}
+			function handleMouseOut(e){
+				e.target.style.removeProperty('color');
+				e.target.style.removeProperty('background');
+			}
+			
+		</script>
+	</body>
+</html>
