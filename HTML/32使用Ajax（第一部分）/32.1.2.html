@@ -2,8 +2,34 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>主流中的异类：应对Opera</title>
 	</head>
 	<body>
+		<div>
+			<button>Apple</button>
+			<button>Cherries</button>
+			<button>Bananas</button>
+		</div>
+		<div id="target">
+			
+		</div>
+		<script>
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length;i ++) {
+				buttons[i].onclick = handleButtonPress;
+			}
+			var httpRequest;
+			function handleButtonPress() {//Opera在触发事件时不会生成一个Event对象
+				httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = handleResponse;
+				httpRequest.open("GET",e.target.innerHTML + ".html");
+				httpRequest.send();
+			}
+			function handleResponse(e) {//Opera没有在XMLRequest对象上定义就绪状态常量
+				if(httpRequest.target.readyState == 4 && httpRequest.target.status == 200) {
+					document.getElementById("target").innerHTML = e.target.responseText;
+				}
+			}
+		</script>
 	</body>
 </html>
