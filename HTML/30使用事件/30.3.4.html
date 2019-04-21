@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用键盘事件</title>
+		<style>
+			p {
+				background: gray;
+				color: white;
+				padding: 10px;
+				margin: 5px;
+				border: thin solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<p>
+				<label for="fave">Fruit:<input autofocus id="fave" name="fave"/></label>
+			</p>
+			<p>
+				<label for="name">Name:<input id="name" name="name" /> </label>
+			</p>
+			<button type="submit">Summit Vote</button>
+			<button type="reset">Reset</button>
+		</form>
+		<span id="message"></span>
+		<script type="text/javascript">
+			var inputelems = document.getElementsByTagName("input");
+			for (var i = 0;i<inputelems.length;i ++) {
+				inputelems[i].onkeyup = handleKeyboardEvent;
+			}
+			function handleKeyboardEvent(e) {
+				document.getElementById("message").innerHTML += "\n" + "Key pressd: " + e.keyCode + " Char: " + String.fromCharCode(e.keyCode);
+			}
+		</script>
+	</body>
+</html>
