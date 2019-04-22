@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用可撤销事件</title>
+		
+		<style type="text/css">
+			a {
+				background: gray;
+				color: white;
+				padding: 10px;
+				border: thin solid black;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<p>
+			<a href="https://www.baidu.com">百度</a>
+			<a href="https://www.hao123.com">好123</a>
+			
+		</p>
+		<script type="text/javascript">
+			function handleClick(e) {
+				if(!confirm("Do you want to navigate to " + e.target.href + "?")){
+					e.preventDefault();
+				}
+			}
+			var elems = document.querySelectorAll("a");
+			for (var i = 0;i < elems.length; i ++) {
+				elems[i].addEventListener("click",handleClick,false);
+			}
+		</script>
+	</body>
+</html>

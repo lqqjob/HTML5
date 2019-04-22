@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用鼠标事件</title>
+		<style type="text/css">
+			p {
+				background: gray;
+				color: white;
+				padding: 10px;
+				margin: 5px;
+				border: thin solid black;
+			}
+			table {
+				margin: 5px;
+				border-collapse:collapse ;
+			}
+			th,td {
+				padding: 4px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="block1">
+			我们既要绿水青山，也要金山银山。宁要绿水青山，不要金山银山，而且绿水青山就是金山银山。
+		</p>
+		<table border = "1">
+			<tr><th>Type:</th><td id="eType"></td></tr>
+			<tr><th>X:</th><td id="eX"></td></tr>
+			<tr><th>Y:</th><td id="eY"></td></tr>
+		</table>
+		<script type="text/javascript">
+			var textblock = document.getElementById("block1");
+			var typecell = document.getElementById("eType");
+			var xcell = document.getElementById("eX");
+			var ycell = document.getElementById("eY");
+			
+			textBlock.addEventListener("mouseover",handleMouseEvent,false);
+			textBlock.addEventListener("mouseout",handleMouseEvent,false);
+			textBlock.addEventListener("mousemove",handleMouseEvent,false);
+			
+			function handleMouseEvent(e) {
+				if(e.eventPhase == Event.AT_TARGET) {
+					typecell.innerHTML = e.type;
+					xcell.innerHTML = e.clientX;
+					ycell.innerHTML = e.clientY;
+					
+					if(e.type == "mouseover") {
+						e.target.style.background = 'black';
+						e.target.style.color = 'white';
+					}else {
+						e.target.style.removeProperty('color');
+						e.target.style.removeProperty('background');
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

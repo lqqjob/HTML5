@@ -50,7 +50,7 @@
 			var pre = document.getElementById("pre");
 			
 			function handleDescendantEvent(e) {
-				pre.innerHTML += "\n" + e.target + e.type + e.eventPhase + Event.CAPTURING_PHASE+ Event.AT_TARGET+Event.BUBBLING_PHASE;
+//				pre.innerHTML += "\n" + e.target + e.type + e.eventPhase + Event.CAPTURING_PHASE+ Event.AT_TARGET+Event.BUBBLING_PHASE;
 				if(e.type == "mouseover" && e.eventPhase == Event.CAPTURING_PHASE) {
 					e.target.style.border = "thick solid red";
 					e.currentTarget.style.border = "thick double black";
