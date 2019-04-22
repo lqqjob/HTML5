@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用Ajax事件</title>
+		<style type="text/css">
+			table {margin: 10px; border-collapse:collapse ;float: left;}
+			div{margin: 10px;}
+			td,th{padding: 4px;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<button>Apples</button>
+			<button>Cherries</button>
+			<button>Bananas</button>
+		</div>
+		<table id="events" border="1"></table>
+		<div id="target">
+			Press a button;
+		</div>
+		<script>
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0;i < buttons.length;i ++) {
+				buttons[i].onclick = handleButtonsPress;
+			}
+			
+			var httpRequest;
+			function handleButtonsPress(e) {
+				clearEventDetails();
+				httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = handleResponse;
+				httpRequest.onerror = handleError;
+				httpRequest.onload = handleLoad;
+				httpRequest.onloadend = handleLoadEnd;
+				httpRequest.onloadstart = handleLoadStart;
+				httpRequest.onprogress = handleProgress;
+				httpRequest.open("GET",e.target.innerHTML + ".html");
+				httpRequest.send();
+				
+			}
+			
+			function handleResponse(e) {
+				displayEventDetails("readystate(" +httpRequest.readyState +")");
+				if(httpRequest.readyState == 4 && httpRequest.status == 200) {
+					document.getElementById("target").innerHTML = httpRequest.response.responseText;
+				}
+			}
+			function handleError(e){displayEventDetails("error",e);} 
+			function handleLoad(e){displayEventDetails("load",e)}
+			function handleLoadEnd(e){displayEventDetails("loadend",e)}
+			function handleLoadStart(e){displayEventDetails("loadstart",e)}
+			function handleProgress(e){displayEventDetails("progress",e)}
+			
+			
+			function clearEventDetails() {
+				document.getElementById("events").innerHTML = "<tr><th>Event</th><th>lengthComputable</th><th>loaded</th><th>total</th></tr>"
+			};
+			function displayEventDetails(eventName,e) {
+				if(e) {
+					document.getElementById("events").innerHTML += "<tr><td>"+ eventName +"</td><td>" + e.lengthComputable +"</td><td>" + e.loaded +"</td><td>" + e.total + "</td></tr>";
+				}else {
+					document.getElementById("events").innerHTML += "<tr><td>"+ eventName +"</td><td>NA</td><td>NA</td><td>NA</td></tr>";
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>
