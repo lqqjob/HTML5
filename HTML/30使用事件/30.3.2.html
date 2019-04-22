@@ -34,11 +34,10 @@
 			var typecell = document.getElementById("eType");
 			var xcell = document.getElementById("eX");
 			var ycell = document.getElementById("eY");
-			
-			textBlock.addEventListener("mouseover",handleMouseEvent,false);
-			textBlock.addEventListener("mouseout",handleMouseEvent,false);
-			textBlock.addEventListener("mousemove",handleMouseEvent,false);
-			
+
+			textblock.addEventListener("mouseover",handleMouseEvent,false);
+			textblock.addEventListener("mouseout",handleMouseEvent,false);
+			textblock.addEventListener("mousemove",handleMouseEvent,false);
 			function handleMouseEvent(e) {
 				if(e.eventPhase == Event.AT_TARGET) {
 					typecell.innerHTML = e.type;
