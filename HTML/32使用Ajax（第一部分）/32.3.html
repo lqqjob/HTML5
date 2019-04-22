@@ -5,5 +5,74 @@
 		<title>处理错误</title>
 	</head>
 	<body>
+		<div>
+			<button>Apple</button>
+			<button>Cherries</button>
+			<button>Bananas</button>
+			<button>Cucumber</button>
+			<button id="badhost">Bad Host</button>
+			<button id="badurl">Bad URL</button>
+		</div>
+		<div id="target">Press a button</div>
+		<div id="errormsg"></div>
+		<div id="statusmsg"></div>
+		<script type="text/javascript">
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length;i ++) {
+				buttons[i].onclick = handleButtonPress;
+			}
+			
+			var httpRequest;
+			function handleButtonPress(e) {
+
+				clearMessages();
+				httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = handleResponse;
+				httpRequest.onerror = handleError;
+				try{
+					switch (e.target.id) {
+						case "badhost":
+						httpRequest.open("GET","http://a.nodomain/doc.html");
+						break;
+						case "badurl":
+						httpRequest.open("GET","http://");
+						break;
+						default:
+						httpRequest.open("GET",e.target.innerHTML + ".html");
+						break;
+						
+						httpRequest.send();
+					}
+				}catch(error){
+					displayErrorMsg("try/catch",error.message);
+				}
+			}
+
+			function handleError(e) {
+
+				displayErrorMsg("Error event",httpRequest.status + httpRequest.statusText);
+			}
+
+			function handleResponse() {
+				if(httpRequest.readyState == 4 ) {
+					var target = document.getElementById("target");
+					if(httpRequest.status == 200) {
+						target.innerHTML = httpRequest.responseText;
+					}else {
+						document.getElementById("statusmsg").innerHTML = "Status: " + httpRequest.status + " " + httpRequest.statusText;
+					}
+				}
+			}
+			
+			function displayErrorMsg (src,msg) {
+				document.getElementById("errormsg").innerHTML = src + ": " + msg;
+			}
+			
+			function clearMessages() {
+				document.getElementById("errormsg").innerHTML = "";
+				document.getElementById("statusmsg").innerHTML = "";
+			}
+			
+		</script>
 	</body>
 </html>
