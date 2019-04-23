@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>终止请求</title>
+	</head>
+	<body>
+		<body>
+		<div>
+			<button>Apple</button>
+			<button>Cherries</button>
+			<button>Bananas</button>
+		</div>
+		<div>
+			<button id="abortbutton">Abort</button>
+		</div>
+		<div id="target">Press a button</div>
+
+		<script>
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length ;i ++) {
+				buttons.[i].onclick = handleButtonPress;
+			}
+			var httpRequest;
+			function handleButtonsPress(e) {
+				if(e.target.id == "abordbutton") {
+					httpRequest.abort();
+				}else {
+					httpRequest = new XMLHttpRequest();
+				    httpRequest.onreadystatechange = handleResponse;
+				    httpRequest.onabort = handleAbort;
+				    httpRequest.open("GET","http://titan:8080" + e.target.innerHTML);
+				    httpRequest.send();	
+				}
+				
+			}
+			function handleResponse(e) {
+				 if(httpRequest.readyState == 4 && httpRequest.status == 200) {
+					document.getElementById("target").innerHTML = httpRequest.responseText;
+				}
+			}
+			function handleAbort() {
+				document.getElementById("target").innerHTML = "Request Abort";
+			}
+		</script>
+	</body>
+	</body>
+</html>
