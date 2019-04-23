@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>覆盖请求的HTTP方法</title>
+	</head>
+	<body>
+		<div>
+			<button>Apple</button>
+			<button>Cherries</button>
+			<button>Bananas</button>
+		</div>
+		<div id="target">Press a button</div>
+		<script type="text/javascript">
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length;i ++) {
+				buttons[i].onclick = handleButtonPress;
+			}
+			
+			var httpRequest;
+			function handleButtonPress(e) {
+
+				clearMessages();
+				httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = handleResponse;
+				httpRequest.open("GET",e.target.innerHTML + ".html");
+				httpRequest.setRequestHeader("X-HTTP-Method-Override","DELETE");//要在open之后设置，否则会报错
+				httpRequest.setRequestHeader("Cache-Control","no-cache");//禁止内容缓存
+				httpRequest.send();
+			}
+
+			function handleError(e) {
+				displayErrorMsg("Error event",httpRequest.status + httpRequest.statusText);
+			}
+
+			function handleResponse() {
+				if(httpRequest.readyState == 4 ) {
+					var target = document.getElementById("target");
+					if(httpRequest.status == 200) {
+						target.innerHTML = httpRequest.responseText;
+					}
+				}
+			}
+			
+			function displayErrorMsg (src,msg) {
+				document.getElementById("errormsg").innerHTML = src + ": " + msg;
+			}
+			
+		</script>
+	</body>
+</html>
