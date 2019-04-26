@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生成跨源的Ajax请求</title>
+	</head>
+	<body>
+		<div>
+			<button>Apple</button>
+			<button>Cherries</button>
+			<button>Bananas</button>
+		</div>
+		<div id="target">Press a button</div>
+
+		<script>
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length ;i ++) {
+				buttons.[i].onclick = handleButtonPress;
+			}
+			var httpRequest;
+			function handleButtonsPress(e) {
+				httpRequest = new XMLHttpRequest();
+				httpRequest.onreadystatechange = handleResponse;
+				httpRequest.open("GET",e.target.innerHTML + ".html");
+				httpRequest.send();
+			}
+			function handleResponse(e) {
+				if(httpRequest.readyState == 2) {
+					document.getElementById("allheaders").innerHTML = httpRequest.getAllResponseHeaders();
+					document.getElementById("ctheader").innerHTML = httpRequest.getResponseHeader("Content-Type");
+				}else if(httpRequest.readyState == 4 && httpRequest.status == 200) {
+					document.getElementById("target").innerHTML = httpRequest.responseText;
+				}
+			}
+		</script>
+	</body>
+</html>
