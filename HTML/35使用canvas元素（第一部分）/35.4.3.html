@@ -2,8 +2,74 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>使用渐变</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+				margin: 4px;
+			}
+		</style>
 	</head>
 	<body>
+		<canvas id="canvas" width="500" height="140">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		
+		<canvas id="canvas1" width="500" height="140">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		
+		<canvas id="canvas2" width="500" height="140">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		
+		<canvas id="canvas3" width="500" height="140">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		
+		<script>
+			//1、使用线性渐变
+			var ctx = document.getElementById("canvas").getContext("2d");
+			var grad = ctx.createLinearGradient(0,0,500,140);
+			grad.addColorStop(0,"red");
+			grad.addColorStop(0.5,"white");
+			grad.addColorStop(1,"black");
+			ctx.fillStyle = grad;
+			ctx.fillRect(0,0,500,400);
+			
+			//2、在更小的图形里使用线性渐变
+			
+			//在不填满画布的图形中使用渐变
+			var ctx1 = document.getElementById("canvas1").getContext("2d");
+			var grad1 = ctx1.createLinearGradient(0,0,500,140);
+			grad1.addColorStop(0,"red");
+			grad1.addColorStop(0.5,"white");
+			grad1.addColorStop(1,"black");
+			ctx1.fillStyle = grad1;
+			ctx1.fillRect(10,10,50,50);
+			
+			//让梯度线匹配想要的图形
+			
+			var ctx2 = document.getElementById("canvas2").getContext("2d");
+			var grad2 = ctx2.createLinearGradient(10,10,60,60);
+			grad2.addColorStop(0,"red");
+			grad2.addColorStop(0.5,"white");
+			grad2.addColorStop(1,"black");
+			ctx2.fillStyle = grad2;
+			ctx2.fillRect(0,0,500,140);
+			
+			//使图形匹配渐变
+			
+			var ctx3 = document.getElementById("canvas3").getContext("2d");
+			var grad3 = ctx3.createLinearGradient(10,10,60,60);
+			grad3.addColorStop(0,"red");
+			grad3.addColorStop(0.5,"white");
+			grad3.addColorStop(1,"black");
+			ctx3.fillStyle = grad3;
+			ctx3.fillRect(10,10,50,50);
+			
+			
+			
+		</script>
 	</body>
 </html>
