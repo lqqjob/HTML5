@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--只在Firefox和Opera中实现-->
+		<title>使用图案</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+				margin: 4px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="140">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<canvas id="canvas1" width="500" height="140">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<img src="../favicon.ico"/ id="banana" hidden>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			var imageElem = document.getElementById("banana");
+			var pattern = ctx.createPattern(imageElem,"repeat");
+			ctx.fillStyle = pattern;
+			ctx.fillRect(0,0,150,140);
+			
+			//使用较小的图形与图像类型的图案
+			var ctx1 = document.getElementById("canvas1").getContext("2d");
+			var pattern1 = ctx1.createPattern(imageElem,"repeat");
+			ctx1.fillStyle = pattern;
+			ctx1.fillRect(150,20,75,50);
+			
+			ctx1.lineWidth = 8;
+			ctx1.strokeStyle = pattern1;
+			ctx1.strokeRect(250,20,75,50);
+		</script>
+	</body>
+</html>
