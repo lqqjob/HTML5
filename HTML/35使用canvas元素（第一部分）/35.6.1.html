@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用视频图像</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+			}
+			body > * {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<video id="vid" width="360" height="240" src="IMG_0970.MOV" controls preload="auto">
+			Video cannot be displayed.
+		</video>
+		<div >
+			<button id="pressme">Snapshot</button>
+		</div>
+		<canvas id="canvas" width="360" height="240" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<script>
+			var ctx = document.getElementById("canvas").getContext("2d");
+			var imageElement = document.getElementById("vid");
+			document.getElementById("pressme").onclick = function(e) {
+				ctx.drawImage(imageElement,0,0,360,240);
+			}
+			
+			var width = 100;
+			var height = 10;
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "red";
+			
+			setInterval(function(){
+				ctx.drawImage(imageElement,0,0,360,240);
+				ctx.strokeRect(180-(width/2),120 - (height/2),width,height);
+			},25);
+			
+			setInterval(function(){
+				width = (width +1) % 200;
+				height = (height + 3) % 200;
+			},100);
+			
+			
+		</script>
+	</body>
+</html>

@@ -2,8 +2,25 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>绘制图像</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;margin: 4px;
+			}
+		</style>
 	</head>
 	<body>
+		<canvas id="canvas" width="500" height="140" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<img id="banana" hidden src="../img/liuyifei.jpeg"/>
+		<script>
+			var ctx = document.getElementById("canvas").getContext("2d");
+			var imageElement = document.getElementById("banana");
+
+			ctx.drawImage(imageElem,10,10);
+			ctx.drawImage(imageElem,120,10,100,120);
+			ctx.drawImage(imageElem,20,20,100,50,250,10,100,120);
+		</script>
 	</body>
 </html>
