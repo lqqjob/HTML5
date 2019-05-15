@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>绘制矩形</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+			}
+			body > * {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="360" height="240" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<canvas id="canvas1" width="360" height="240" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			ctx.fillStyle = "yellow";
+			ctx.strokeStyle ="black";
+			ctx.lineWidth = 4;
+			ctx.beginPath();
+			ctx.moveTo(110,10);
+			ctx.lineTo(110,100);
+			ctx.lineTo(10,10);
+			ctx.closePath();
+			ctx.rect(110,10,100,90);
+			ctx.rect(110,100,130,30);
+			ctx.fill();
+			ctx.stroke();
+			
+			//子路径不一定相连才能形成路径
+			var ctx1 = document.getElementById("canvas1").getContext("2d");
+			ctx1.fillStyle = "yellow";
+			ctx1.strokeStyle ="black";
+			ctx1.lineWidth = 4;
+			ctx1.beginPath();
+			ctx1.moveTo(110,10);
+			ctx1.lineTo(110,100);
+			ctx1.lineTo(10,10);
+			ctx1.closePath();
+			ctx1.rect(120,10,100,90);
+			ctx1.rect(150,110,130,20);
+			ctx1.fill();
+			ctx1.stroke();
+			
+		</script>
+	</body>
+</html>

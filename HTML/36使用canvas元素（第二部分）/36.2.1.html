@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用arcTo创建圆弧</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+			}
+			body > * {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="360" height="240" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<canvas id="canvas1" width="500" height="140" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			var point1 = [100,10];
+			var point2 = [200,10];
+			var point3 = [200,110];
+			
+			ctx.fillStyle = "yellow";
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 4;
+			
+			ctx.beginPath();
+			ctx.moveTo(point1[0],point1[1]);
+			ctx.arcTo(point2[0],point2[1],point3[0],point3[1],100);
+			ctx.stroke();
+			drawPoint(point1[0],point1[1],ctx);
+			drawPoint(point2[0],point2[1],ctx);
+			drawPoint(point3[0],point3[1],ctx);
+			
+			ctx.beginPath();
+			ctx.moveTo(point1[0],point1[1]);
+			ctx.lineTo(point2[0],point2[1]);
+			ctx.lineTo(point3[0],point3[1]);
+			ctx.stroke();
+			
+			function drawPoint(x,y,ctx) {
+				ctx.lineWidth = 1;
+				ctx.strokeStyle = "red";
+				ctx.strokeRect(x-2,y-2,4,4);
+			}
+			
+			var canvasElement = document.getElementById("canvas1");
+			var ctx1 = canvasElement.getContext("2d");
+		    draw();
+		    canvasElement.onmousemove = function(e) {
+		    		if(e.ctrlKey) {
+		    		  point1 = [e.clientX,e.clientY];
+		      	}else if(e.shiftKey) {
+		    		  point2 = [e.clientX,e.clientY];
+		      	}else {
+		    		  point3 = [e.clientX,e.clientY];
+		    	    }
+		      	ctx1.clearRect(0,0,540,140);
+		      	draw();
+		    }
+		
+		
+		function draw() {
+			ctx1.fillStyle = "yellow";
+			ctx1.strokeStyle = "black";
+			ctx1.lineWidth = 4;
+			
+			ctx1.beginPath();
+			ctx1.moveTo(point1[0],point1[1]);
+			ctx1.arcTo(point2[0],point2[1],point3[0],point3[1],100);
+			ctx1.stroke();
+			drawPoint(point1[0],point1[1],ctx1);
+			drawPoint(point2[0],point2[1],ctx1);
+			drawPoint(point3[0],point3[1],ctx1);
+			
+			ctx1.beginPath();
+			ctx1.moveTo(point1[0],point1[1]);
+			ctx1.lineTo(point2[0],point2[1]);
+			ctx1.lineTo(point3[0],point3[1]);
+			ctx1.stroke();
+		}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用线条绘制路径</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+			}
+			body > * {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="360" height="240" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<canvas id="canvas1" width="360" height="240" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			ctx.fillStyle = "yellow";
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 4;
+			ctx.beginPath();
+			ctx.moveTo(10,10);
+			ctx.lineTo(110,10);
+			ctx.lineTo(110,120);
+			ctx.closePath();
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.moveTo(150,10);
+			ctx.lineTo(200,10);
+			ctx.lineTo(200,120);
+			ctx.lineTo(200,120);
+			ctx.lineTo(190,120);
+			ctx.fill();
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(250,10);
+			ctx.lineTo(250,120);
+			ctx.stroke();
+			
+			var ctx1 = document.getElementById("canvas1").getContext("2d");
+			ctx1.strokeStyle = "red";
+			ctx1.lineWidth = 2;
+			ctx1.beginPath();
+			ctx1.moveTo(0,50);
+			ctx1.lineTo(200,50);
+			ctx1.stroke();
+			
+			ctx1.strokeStyle = "black";
+			ctx1.lineWidth = 40;
+			var xpos = 50;
+			var styles = ["butt","round","square"];
+			for (var i = 0;i < styles.length;i ++) {
+				ctx1.beginPath();
+				ctx1.lineCap = styles[i];
+				ctx1.moveTo(xpos,50);
+				ctx1.lineTo(xpos,150);
+				ctx1.stroke();
+				xpos += 50;
+			}
+		</script>
+	</body>
+</html>
