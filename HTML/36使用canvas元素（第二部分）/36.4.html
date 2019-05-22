@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建剪辑区域</title>
+		<style type="text/css">
+			canvas {
+				border: thin solid black;
+			}
+			body > * {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="140" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			ctx.fillStyle = "yellow";
+			ctx.beginPath();
+			ctx.rect(0,0,500,140);
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.rect(100,20,300,100);
+			ctx.clip();
+			
+			ctx.fillStyle = "red";
+			ctx.beginPath();
+			ctx.rect(0,0,500,140);
+			ctx.fill();
+			
+		</script>
+	</body>
+</html>
