@@ -2,9 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>绘制文本</title>
+		<title>使用阴影</title>
 		<link rel="stylesheet" href="canvas.css"  type="text/css"/>
-
 	</head>
 	<body>
 		<canvas id="canvas" width="500" height="140" preload = "auto">
@@ -12,13 +11,28 @@
 		</canvas>
 		<script type="text/javascript">
 			var ctx = document.getElementById("canvas").getContext("2d");
+			
 			ctx.fillStyle = "lightblue";
 			ctx.strokeStyle = "black";
 			ctx.lineWidth = 3;
+			ctx.shadowOffsetX = 5;
+			ctx.shadowOffsetY = 5;
+			ctx.shadowBlur = 5;
+			ctx.shadowColor = "gold";
+			
+			ctx.strokeRect(250,20,100,100);
+			
+			ctx.beginPath();
+			ctx.arc(420,70,50,0,Math.PI,true);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.arc(420,80,40,0,Math.PI,false);
+			ctx.fill();
 			
 			ctx.font = "100px sans-serif";
-			ctx.fillText("Hello",50,100);
-			ctx.strokeText("Hello",50,100);
+			ctx.fillText("Hello",10,100);
+			ctx.strokeText("Hello",10,100);
 		</script>
 	</body>
 </html>

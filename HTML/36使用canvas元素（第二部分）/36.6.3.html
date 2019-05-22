@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用合成</title>
+		<link rel="stylesheet" href="canvas.css"  type="text/css"/>
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="120" preload = "auto">
+			Your browser doesn't support the <code>canvas</code> element.
+		</canvas>
+		<label>Composition Value:</label>
+		<select id="list">
+			<option>copy</option>
+			<option>desination-atop</option>
+			<option>desination-in</option>
+			<option>desination-over</option>
+			<option>desination-out</option>
+			<option>lighter</option>
+			<option>source-atop</option>
+			<option>source-in</option>
+			<option>source-out</option>
+			<option>source-over</option>
+			<option>xor</option>
+		</select>
+		<script type="text/javascript">
+			var ctx = document.getElementById("canvas").getContext("2d");
+			ctx.fillStyle = "black";
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 3;
+			
+			var comVal = "copy";
+			
+			document.getElementById("list").onchange = function(e) {
+				comVal = e.target.value;
+				draw();
+			}
+			draw();
+			function draw() {
+				ctx.clearRect(0,0,300,120);
+				ctx.globalAlpha = 1.0;
+			    ctx.font = "100px sans-serif";
+				ctx.fillText("Hello",10,100);
+				ctx.strokeText("Hello",10,100);
+				ctx.globalCompositeOperation = comVal;
+				
+				ctx.fillStyle = "red";
+				ctx.globalAlpha = 0.5;
+				ctx.fillRect(100,10,150,100);
+			}
+		</script>
+	</body>
+</html>
