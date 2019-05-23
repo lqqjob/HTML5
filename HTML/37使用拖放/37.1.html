@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建来源项目</title>
+		<style>
+			#src > * {float: left;}
+			#target,#src > img {border: thin solid black; padding: 2px;margin: 4px;}
+			#target {height: 81px;width: 81px; text-align: center;display: table;}
+			#target > p {display: table-cell;vertical-align: middle;}
+			#target > img {margin: 1px;}
+			img.dragged {background-color: lightblue;}
+		</style>
+	</head>
+	<body>
+		<div id="src">
+			<img draggable="true" id="banana" src="../13定制input元素/normal.png" />
+			<img draggable="true" id="apple" src="../13定制input元素/normal.png" />
+			<img draggable="true" id="cherries" src="../13定制input元素/normal.png" />
+
+			<div id="target">
+				<p id="msg">Drop Here</p>
+			</div>
+		</div>
+		<script>
+			var src = document.getElementById("src");
+			var target = document.getElementById("target");
+			var msg = document.getElementById("msg");
+			
+			src.ondragstart = function(e) {
+				e.target.classList.add("dragged");
+			}
+			
+			src.ondragend = function(e) {
+				e.target.classList.remove("dragged");
+				msg.innerHTML = "Drop Here";
+			}
+			
+			src.ondrag = function(e) {
+				msg.innerHTML = e.target.id;
+			}
+		</script>
+	</body>
+</html>
