@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>根据数据过滤被拖动项目</title>
+		<style>
+			#src > * {float: left;}
+			#target,#src > img {border: thin solid black; padding: 2px;margin: 4px;}
+			#target {height: 81px;width: 81px; text-align: center;display: table;}
+			#target > p {display: table-cell;vertical-align: middle;}
+			#target > img {margin: 1px;}
+			img.dragged {background-color: lightblue;}
+		</style>
+	</head>
+	<body>
+		<div id="src">
+			<img draggable="true" id="banana" src="../13定制input元素/normal.png" />
+			<img draggable="true" id="apple" src="../13定制input元素/normal.png" />
+			<img draggable="true" id="cherries" src="../13定制input元素/normal.png" />
+
+			<div id="target">
+				<p id="msg">Drop Here</p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var src = document.getElementById("src");
+			var target = document.getElementById("target");
+			target.ondragenter = handleDrag;
+			target.ondragover = handleDrag;
+			
+			function handleDrag(e) {
+				if(e.dataTransfer.getData("Text") == "banana"){
+				   e.preventDefault();	
+				}
+				
+			}
+			target.ondrop = function(e) {
+				var dropID = e.dataTransfer.getData("Text");
+				var newElem = document.getElementById(dropID).cloneNode(false);
+				target.innerHTML = "";
+				target.appendChild(newElem);
+				e.preventDefault();
+			}
+			src.ondragstart = function(e) {
+				e.dataTransfer.setData("Text",e.target.id);
+				e.target.classList.add("dragged");
+			}
+			src.ondragend = function(e) {
+				var elems = document.querySelectorAll(".dragged");
+				for (var i = 0;i < elems.length;i ++) {
+					elems[i].classList.remove("dragged");
+				}
+			}
+		</script>
+		
+	</body>
+</html>
