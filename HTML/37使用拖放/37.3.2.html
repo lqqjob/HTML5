@@ -7,6 +7,14 @@
 			body > * {
 				float: left;
 			}
+			#target {
+				border: medium double black;
+				margin: 4px;
+				height: 75px;
+				width: 200px;
+				text-align: center;
+				display: table;
+			}
 			#target > p {
 				display: table-cell;vertical-align: middle;
 			}
@@ -22,7 +30,7 @@
 			
 		</table>
 		
-		<!--<script>
+		<script>
 			var target = document.getElementById("target");
 		    target.ondragenter = handleDrag;
 		    target.ondragover = handleDrag;
@@ -30,8 +38,9 @@
 		    function handleDrag(e) {
 		    	   e.preventDefault();
 		    }
-		    target.ondrag = function(e) {
+		    target.ondrop = function(e) {
 		    		var files = e.dataTransfer.files;
+		    		document.writeln(files);
 		    		var tableElem = document.getElementById("data");
 		    		tableElem.innerHTML = "<tr><th>Name</th><th>Type</th><th>Size</th></tr>";
 		    		for (var i = 0;i < files.length;i ++) {
@@ -40,6 +49,8 @@
 		    		}
 		    		e.preventDefault();
 		    }
-		</script>-->
+		</script>
+		
+		//在表单里上传释放文件  这个不想写了 
 	</body>
 </html>
