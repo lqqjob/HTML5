@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>处理地理定位错误</title>
+		<title>监控位置</title>
 		<style>
 			table {
 				border-collapse: collapse;
@@ -34,8 +34,13 @@
 				<th>Error Message:</th><td id="errormessage">-</td>
 			</tr>
 		</table>
+		<button id="pressme">Cancel Watch</button>
 		<script>
-			navigator.geolocation.getCurrentPosition(displayPosition,handleError);
+			var options = {enableHighAccuracy:false,timeout:200,maximumAge:30000}
+			var watchID = navigator.geolocation.watchPosition(displayPosition,handleError,options);
+			document.getElementById("pressme").onclick = function(e) {
+				navigator.geolocation.clearWatch(watchID);
+			}
 			function displayPosition(pos) {
 				var properties = ["longitude","latitude","altitude","accuracy","altitudeAccuracy","heading","speed"];
 				for (var i = 0;i <properties.length;i ++) {
