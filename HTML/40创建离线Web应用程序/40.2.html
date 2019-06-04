@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html manifest="fruit.appcache">
+	<head>
+		<meta charset="UTF-8">
+		<title>定义清单</title>
+		<style>
+			img {border:medium double black;padding: 5px; margin: 5px;}
+		</style>
+	</head>
+	<body>
+		<img id="imgtarget" src="../img/图二.jpg"/>
+		<div>
+			<button id="banana">Bnana</button>
+			<button id="apple">Apple</button>
+			<button id="cherries">Cherries</button>
+		</div>
+		<a href="https://www.baidu.com">Link to another</a>
+		<script type="text/javascript">
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0;i < buttons.length;i ++) {
+				buttons[i].onclick = handleButtonPress;
+			}
+			function handleButtonPress(e) {
+				document.getElementById("imgtarget").src = e.target.id + "100.png";
+			}
+		</script>
+	</body>
+</html>

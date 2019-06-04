@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>检测浏览器状态</title>
+	</head>
+	<body>
+		The browser is:<span id="status">unknown</span>
+		<script>
+			var statusValue;
+			if(window.navigator.onLine) {
+				statusValue = "online";
+			}else {
+				statusValue = "offline";
+			}
+			document.getElementById("status").innerHTML = statusValue;
+		</script>
+	</body>
+</html>

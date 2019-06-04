@@ -1,0 +1,15 @@
+CACHE MANIFEST
+example.html
+banana100.png
+//定义备用区域 
+FALLBACK:
+*.png offline.png
+* offline.html
+
+//定义网络区域
+NETWORK:
+cherries100.png
+
+//定义缓存区域
+CACHE:
+apple100.png
