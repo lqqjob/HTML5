@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用离线缓存</title>
+		<style>
+			img {border: medium double black; padding: 5px; margin: 5px;}
+			div {margin-top: 10px;margin-bottom:10px ;}
+			table {margin: 10px; border-collapse:collapse ;}
+			th,td {padding: 2px;}
+			body > * {float: left;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img id="imagetarget" src="../img/图二.jpg" />
+			<div >
+				<button id="banana">Bnana</button>
+			    <button id="apple">Apple</button>
+			    <button id="cherries">Cherries</button>
+			</div>
+			<div>
+				<button id="update">Update</button>
+				<button id="swap">Swap Cache</button>
+			</div>
+			The status is:<span id="status"></span>
+		</div>
+		<table id="eventtable" border="1">
+			<tr><th>Event Type</th></tr>
+		</table>
+		<script>
+			var buttons = document.getElementsByTagName("button");
+			for (var i = 0; i < buttons.length;i ++) {
+				buttons.[i].onClick = handleButtonPress;
+			}
+			window.applicationCache.onchecking = handleEvent;
+			window.applicationCache.onnoupdate = handleEvent;
+			window.applicationCache.ondownloading = handleEvent;
+			window.applicationCache.onupdateready = handleEvent;
+			window.applicationCache.oncached = handleEvent;
+			window.applicationCache.onobsolete = handleEvent;
+			
+			function handleEvent(e) {
+				document.getElementById("eventtable").innerHTML += "<tr><td>" + e.type+"</td></tr>";
+				checkStatus();
+			}
+			
+			function handleButtonPress(e) {
+				switch (e.target.id){
+					case 'swap':
+						window.applicationCache.swapCache();
+						break;
+						case 'update':
+						window.applicationCache.update();
+						checkStatus();
+						break;
+					default:
+						document.getElementById("imagetarget").src = e.target.id +"100.png";
+						break;
+				}
+			}
+			function checkStatus() {
+				var statusNames = ["UNCACHED","IDLE","CHECKING","DOWNLOADING","UPDATEREADY","OBSOLETE"];
+				var status = window.applicationCache.status;
+				document.getElementById("status").innerHTML = statusNames[status];
+			}
+		</script>
+	</body>
+</html>
