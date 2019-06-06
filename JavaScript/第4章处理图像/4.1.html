@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建反转</title>
+		<link rel="stylesheet" href="script01.css"/>
+	</head>
+	<body>
+		<a href="next.html" onmouseover="document.images['arrow'].src = '../images/2.jpg'" onmouseout = "document.images['arrow'].src = '../images/1.jpg' "><img src="../images/1.jpg" id="arrow" alt="arrow"/></a>
+		<!--<script>
+			
+			var imageElem = document.getElementById("arrow");
+			imageElem.addEventListener("mouseover",handleMouseEvent,false);
+			imageElem.addEventListener("mouseout",handleMouseEvent,false);
+
+			function handleMouseEvent(e) {
+				if(e.type == "mouseover") {
+				   e.target.src = "../images/2.jpg";
+				}else {
+				   e.target.src = "../images/1.jpg";
+				}
+			}
+			
+		</script>-->
+	</body>
+</html>

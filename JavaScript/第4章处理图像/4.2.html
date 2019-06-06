@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创建更有效的翻转器</title>
+		<link rel="stylesheet" href="script01.css" />
+	</head>
+	<body>
+	<a href="../"><img src="../images/1.jpg" alt="button1" id="1"/> </a>&nbsp;&nbsp;
+	<a href="../"><img src="../images/2.jpg" alt="button2" id="2"/> </a>
+	</body>
+	<script>
+		window.onload = rolloerInit;
+		function rolloerInit() {
+			for(var i = 0;i < document.images.length;i ++) {
+				if(document.images[i].parentNode.tagName == "A") {
+					setupRollover(document.images[i]);
+				}
+			}
+		}
+		function setupRollover(theImage) {
+			theImage.outImge = new Image();
+			theImage.outImge.src = theImage.src;
+			theImage.onmouseout = function() {
+				this.src = this.outImge.src;
+			}
+			theImage.overImage = new Image();
+			theImage.overImage.src = "../images/" + theImage.id + ".jpg";
+			theImage.overImage.onmouseover = function() {
+			document.writeln("11111");
+				this.src = "../images/2.jpg";
+			}
+		}
+	</script>
+</html>
