@@ -2,12 +2,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>创建更有效的翻转器</title>
-		<link rel="stylesheet" href="script01.css" />
+		<title>构建三状态翻转器</title>
 	</head>
 	<body>
-	<a href="../"><img src="../images/1.jpg" alt="button1" id="2"/> </a>&nbsp;&nbsp;
-	<a href="../"><img src="../images/2.jpg" alt="button2" id="1"/> </a>
+	<a href="https://www.baidu.com"><img src="../images/1.jpg" alt="button1" id="2"/> </a>&nbsp;&nbsp;
+	<a href="https://www.baidu.com"><img src="../images/2.jpg" alt="button2" id="1"/> </a>
 	
 	<script>
 		window.onload = rolloerInit;
@@ -23,11 +22,17 @@
 		
 			theImage.outImge = new Image();
 			theImage.outImge.src = theImage.src;
-
 			theImage.onmouseout = function() {
 				this.src = this.outImge.src;
-
 			}
+			
+			theImage.clickImage = new Image();
+			theImage.clickImage.src = "../images/" + "3" + ".jpg";
+			theImage.onclick = function() {
+//				document.writeln(this.clickImage.src);
+				this.src = this.clickImage.src;
+			}
+			
 			theImage.overImage = new Image();
 			theImage.overImage.src = "../images/" + theImage.id + ".jpg";
 			theImage.onmouseover = function() {
