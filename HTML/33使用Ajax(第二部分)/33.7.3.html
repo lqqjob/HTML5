@@ -5,7 +5,7 @@
 		<title>接收JSON数据</title>
 	</head>
 	<body>
-		<form id="fruitform" method="post" action="http://titan:8080/form">
+		<form id="fruitform" method="post" action="http://ir.orvibo.com/service">
 			<div class="table">
 				<div class="row">
 					<div class="cell label">Bananas:</div>
@@ -27,7 +27,7 @@
 			<button id="submit" type="submit">Submit form</button>
 		</form>
 		
-		<script type="text/javascript">
+		<script type="text/javascript" src="http://ir.orvibo.com/service?appId=ios&lanCode=zh&m=getCountry&sign=a8e02135057e3f2a51001e9f763529ec9bc48cdd&sn=B04E3870C9E341018A2677D5076BAD00&source=ZhiJia365">
 			document.getElementById("submit").onclick = handleButtonPress;
 			
 			var httpRequest;
@@ -37,23 +37,37 @@
 				var form = document.getElementById("fruitform");
 				var formData = new Object();
 				
-				var inputElements = document.getElementsByTagName("input");
-				for (var i = 0;i < inputElements.length;i ++) {
-					var inputElem = inputElements[i];
-					formData[inputElem.name] = inputElem.value;
-				}
+//				var inputElements = document.getElementsByTagName("input");
+//				for (var i = 0;i < inputElements.length;i ++) {
+//					var inputElem = inputElements[i];
+//					formData[inputElem.name] = inputElem.value;
+//				}
+				
+				formData["m"] = "getCountry";
+				formData["lanCode"] = "zh";
+				formData["appId"] = "ios";
+				formData["sign"] = "a8e02135057e3f2a51001e9f763529ec9bc48cdd";
+				formData["sn"] = "B04E3870C9E341018A2677D5076BAD00";
+				formData["source"] = "ZhiJia365";
+//				formData["userId"] = "00ff29343383416cb66113f19c45310d";
+//				formData["familyId"] = "6f684a53e4d941bf93c714a294908c94";
 				
 				httpRequest = new XMLHttpRequest();
 				httpRequest.onreadystatechange = handleResponse;
-				httpRequest.open("POST",form.action);
+				httpRequest.open("GET",form.action);
 				httpRequest.setRequestHeader("Content-Type","application/json");
+//				httpRequest.setRequestHeader("Access-Control-Allow-Credentials","*");
+//				httpRequest.setRequestHeader("Access-Control-Allow-Methods","GET");
+//				httpRequest.setRequestHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
 				httpRequest.send(JSON.stringify(formData));
 			}
 			
 			function handleResponse() {
-				if(httpRequest.readyState == 4 && httpRequest.status == 200) {
+				console.log(httpRequest.readyState);
+				console.log(httpRequest.status);
+				if(httpRequest.readyState == 4 && httpRequest.status == 0) {
                    var data = JSON.parse(httpRequest.responseText);
-                   document.getElementById("results").innerHTML = "You ordered" + data.total + " items";
+                   document.getElementById("results").innerHTML = "You ordered" + data + " items";
 				}
 			}
 			
