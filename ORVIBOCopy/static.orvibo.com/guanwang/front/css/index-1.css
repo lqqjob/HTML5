@@ -46,6 +46,63 @@ header .content .menu > ul > li > a {
     color: #888
 }
 
+
+
 header .content .menu > ul > li > a.active {
     color: #fff
+}
+
+header .content .menu > ul > li > ul {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 9999;
+    display: none
+}
+header .content .menu > ul > li > ul > li {
+    padding: 0 20px;
+    background: #444
+}
+header .content .menu > ul > li:hover > ul > li:hover {
+    background: #0d7fef
+}
+
+header .content .menu > ul > li > ul > li > a {
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    color: #bbb;
+    font-size: 14px;
+    white-space: nowrap
+}
+
+.i_banner {
+	position:relative;
+	height:700px;
+	width:100%
+}
+
+.i_banner .ib_slider {
+	position:absolute;
+	width:100%;
+	height:700px;
+	overflow:hidden;
+}
+.i_banner .ib_slider li {
+	width:100%;
+	height:700px;
+	position:relative;
+	overflow:hidden;
+}
+.i_banner .ib_slider li a {
+	position:absolute;
+	width:1920px;
+	height:500px;
+	left:50%;
+	margin-left:-960px;
+}
+.i_banner .ib_slider li a img {
+	display:block;
+	margin:0 auto;
+	overflow:hidden;
 }
